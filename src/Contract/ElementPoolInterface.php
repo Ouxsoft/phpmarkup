@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Contract;
+namespace Ouxsoft\PHPMarkup\Contract;
 
-use Ouxsoft\LivingMarkup\Element\AbstractElement;
+use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use ArrayIterator;
 
 /**
  * Interface ElementPoolInterface
- * @package Ouxsoft\LivingMarkup\Contract
+ * @package Ouxsoft\PHPMarkup\Contract
  */
 interface ElementPoolInterface
 {

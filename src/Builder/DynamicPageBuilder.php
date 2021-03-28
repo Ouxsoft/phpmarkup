@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,18 +10,18 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup\Builder;
+namespace Ouxsoft\PHPMarkup\Builder;
 
-use Ouxsoft\LivingMarkup\Contract\BuilderInterface;
-use Ouxsoft\LivingMarkup\Contract\ConfigurationInterface;
-use Ouxsoft\LivingMarkup\Contract\EngineInterface;
-use Ouxsoft\LivingMarkup\Engine;
+use Ouxsoft\PHPMarkup\Contract\BuilderInterface;
+use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
+use Ouxsoft\PHPMarkup\Contract\EngineInterface;
+use Ouxsoft\PHPMarkup\Engine;
 
 /**
  * Class DynamicPageBuilder
  * Builds dynamic pages
  *
- * @package Ouxsoft\LivingMarkup\Page\Builder
+ * @package Ouxsoft\PHPMarkup\Page\Builder
  */
 class DynamicPageBuilder implements BuilderInterface
 {

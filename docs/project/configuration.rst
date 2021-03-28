@@ -21,7 +21,7 @@ Example
       "elements": [
         {
           "xpath": "//bitwise",
-          "class_name": "LivingMarkup\\Test\\Bitwise"
+          "class_name": "PHPMarkup\\Test\\Bitwise"
         }
       ],
       "routines": [

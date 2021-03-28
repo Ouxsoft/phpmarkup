@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,15 +8,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit\Element;
+namespace Ouxsoft\PHPMarkup\Tests\Unit\Element;
 
-use Ouxsoft\LivingMarkup\Tests\Resource\Element\HelloWorld;
+use Ouxsoft\PHPMarkup\Tests\Resource\Element\HelloWorld;
 use PHPUnit\Framework\TestCase;
 
 class AbstractElementTest extends TestCase
 {
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\AbstractElement::getArgByName
+     * @covers \Ouxsoft\PHPMarkup\Element\AbstractElement::getArgByName
      */
     public function testGetArgByName()
     {
@@ -26,7 +26,7 @@ class AbstractElementTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\AbstractElement::__construct
+     * @covers \Ouxsoft\PHPMarkup\Element\AbstractElement::__construct
      */
     public function test__construct()
     {
@@ -35,7 +35,7 @@ class AbstractElementTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\AbstractElement::onRender
+     * @covers \Ouxsoft\PHPMarkup\Element\AbstractElement::onRender
      */
     public function testOnRender()
     {
@@ -44,7 +44,7 @@ class AbstractElementTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\AbstractElement::__invoke
+     * @covers \Ouxsoft\PHPMarkup\Element\AbstractElement::__invoke
      */
     public function test__invoke()
     {
@@ -53,7 +53,7 @@ class AbstractElementTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\AbstractElement::innerText
+     * @covers \Ouxsoft\PHPMarkup\Element\AbstractElement::innerText
      */
     public function testInnerText()
     {
@@ -63,7 +63,7 @@ class AbstractElementTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\AbstractElement::__toString
+     * @covers \Ouxsoft\PHPMarkup\Element\AbstractElement::__toString
      */
     public function test__toString()
     {
@@ -72,7 +72,7 @@ class AbstractElementTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\AbstractElement::getArgs
+     * @covers \Ouxsoft\PHPMarkup\Element\AbstractElement::getArgs
      */
     public function testGetArgs()
     {
@@ -82,7 +82,7 @@ class AbstractElementTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\AbstractElement::getId
+     * @covers \Ouxsoft\PHPMarkup\Element\AbstractElement::getId
      */
     public function testGetId()
     {

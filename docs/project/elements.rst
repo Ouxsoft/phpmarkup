@@ -1,7 +1,7 @@
 Elements
 ========
 
-Elements are the working bees of LivingMarkup.
+Elements are the working bees of PHPMarkup.
 
 Elements are instantiated DOMElements. Much of how an DOMElement is processed
 is determined by the class_name defined to process them.
@@ -16,7 +16,7 @@ Element Development
 
 It is simple to make new Elements.
 
-1. Create a class that extends the abstract class ``\LivingMarkup\Element\AbstractElement``.
+1. Create a class that extends the abstract class ``\PHPMarkup\Element\AbstractElement``.
 2. Add an ``Element`` to the ``Processor``.
 3. Run the Processor with Markup containing the ``DOMElement``
 
@@ -27,9 +27,9 @@ Hello World Example
 
     <?php
 
-    namespace Ouxsoft\LivingMarkup\Elements;
+    namespace Ouxsoft\PHPMarkup\Elements;
 
-    class HelloWorld extends Ouxsoft\LivingMarkup\Element
+    class HelloWorld extends Ouxsoft\PHPMarkup\Element
     {
         public function onRender()
         {
@@ -46,7 +46,7 @@ Bootstrap 4 Alert Example
     <?php
     namespace Partial;
 
-    class Alert extends Ouxsoft\LivingMarkup\Element\AbstractElement
+    class Alert extends Ouxsoft\PHPMarkup\Element\AbstractElement
     {
         public function onRender()
         {
@@ -67,6 +67,6 @@ Bootstrap 4 Alert Example
 
 LHTML Elements
 --------------
-To allow for library reuse LivingMarkup comes packaged with only LHTML ``Elements`` used for test.
+To allow for library reuse PHPMarkup comes packaged with only LHTML ``Elements`` used for test.
 For additional Elements, see:
  * [Hoopless](https://github.com/ouxsoft/hoopless)

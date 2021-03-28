@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'LivingMarkup'
+project = 'PHPMarkup'
 copyright = '2021, Ouxsoft'
 author = 'Ouxsoft'
 
@@ -102,7 +102,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'LivingMarkup'
+htmlhelp_basename = 'PHPMarkup'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -131,7 +131,7 @@ latex_elements = {
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'LivingMarkup', 'LivingMarkup Documentation',
+    (master_doc, 'PHPMarkup', 'PHPMarkup Documentation',
      [author], 1)
 ]
 
@@ -142,8 +142,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'LivingMarkup', 'LivingMarkup Documentation',
-     author, 'LivingMarkup', 'A markup processor.',
+    (master_doc, 'PHPMarkup', 'PHPMarkup Documentation',
+     author, 'PHPMarkup', 'A markup processor.',
      'Miscellaneous'),
 ]
 
@@ -161,5 +161,5 @@ import subprocess, os
 read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
 if read_the_docs_build:
     subprocess.call(['doxygen', 'Doxyfile'])
-    subprocess.call(['doxyphp2sphinx', 'Ouxsoft::LivingMarkup'])
+    subprocess.call(['doxyphp2sphinx', 'Ouxsoft::PHPMarkup'])
 

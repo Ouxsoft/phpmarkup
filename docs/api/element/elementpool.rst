@@ -1,7 +1,7 @@
 ElementPool
 ===========
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Element\ElementPool``
+:Qualified name: ``Ouxsoft\PHPMarkup\Element\ElementPool``
 :Implements: :interface:`ElementPoolInterface`
 
 .. php:class:: ElementPool

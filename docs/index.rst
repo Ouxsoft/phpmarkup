@@ -1,16 +1,16 @@
 |alt text|
 
-Welcome to LivingMarkup Documentation
+Welcome to PHPMarkup Documentation
 =====================================
 
-| **LivingMarkup is an PHP implementation of a LHTML parser.**
+| **PHPMarkup is an PHP implementation of a LHTML parser.**
 | It is a powerful and flexible way to build dynamic web pages.
 
 
 .. code-block:: php
    
     <?php
-    use Ouxsoft\LivingMarkup\Factory\ProcessorFactory;
+    use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 
     $processor = ProcessorFactory::getInstance();
 
@@ -36,23 +36,23 @@ Welcome to LivingMarkup Documentation
 Installation
 ------------
 
-Get an instance of LivingMarkup up and running in less than 5 minutes.
+Get an instance of PHPMarkup up and running in less than 5 minutes.
 
-LivingMarkup is available on Packagist.
+PHPMarkup is available on Packagist.
 
 Install with Composer:
 
 .. code-block:: bash
 
-    composer require ouxsoft/livingmarkup
+    composer require ouxsoft/phpmarkup
 
 That's it. You're done! Please take the rest of the time to read our docs.
 
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/ouxsoft/LivingMarkup/issues
-- Source Code: https://github.com/ouxsoft/LivingMarkup
+- Issue Tracker: https://github.com/ouxsoft/PHPMarkup/issues
+- Source Code: https://github.com/ouxsoft/PHPMarkup
 
 Navigation
 ==========
@@ -75,4 +75,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`search`
 
-.. |alt text| image:: https://github.com/hxtree/LivingMarkup/raw/master/docs/logo.jpg
+.. |alt text| image:: https://github.com/hxtree/PHPMarkup/raw/master/docs/logo.jpg

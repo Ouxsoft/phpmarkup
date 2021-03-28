@@ -1,7 +1,7 @@
 ConcreteFactory
 ===============
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Factory\ConcreteFactory``
+:Qualified name: ``Ouxsoft\PHPMarkup\Factory\ConcreteFactory``
 :Implements: :interface:`AbstractFactoryInterface`
 
 .. php:class:: ConcreteFactory

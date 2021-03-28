@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,19 +10,19 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup\Element;
+namespace Ouxsoft\PHPMarkup\Element;
 
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
-use Ouxsoft\LivingMarkup\Contract\ElementPoolInterface;
+use Ouxsoft\PHPMarkup\Contract\ElementPoolInterface;
 
 /**
  * Class ElementPool
  *
  * Stores and retrieves individual elements
  *
- * @package Ouxsoft\LivingMarkup
+ * @package Ouxsoft\PHPMarkup
  */
 class ElementPool implements
     Countable,

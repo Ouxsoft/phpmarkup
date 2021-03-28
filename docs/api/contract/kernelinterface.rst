@@ -1,7 +1,7 @@
 KernelInterface
 ===============
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Contract\KernelInterface``
+:Qualified name: ``Ouxsoft\PHPMarkup\Contract\KernelInterface``
 
 .. php:interface:: KernelInterface
 

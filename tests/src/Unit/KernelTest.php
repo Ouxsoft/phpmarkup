@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,18 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit;
+namespace Ouxsoft\PHPMarkup\Tests\Unit;
 
-use Ouxsoft\LivingMarkup\Contract\BuilderInterface;
-use Ouxsoft\LivingMarkup\Contract\ConfigurationInterface;
-use Ouxsoft\LivingMarkup\Contract\KernelInterface;
-use Ouxsoft\LivingMarkup\Engine;
-use Ouxsoft\LivingMarkup\Configuration;
-use Ouxsoft\LivingMarkup\Factory\ConcreteFactory;
-use Ouxsoft\LivingMarkup\Factory\ContainerFactory;
-use Ouxsoft\LivingMarkup\Document;
+use Ouxsoft\PHPMarkup\Contract\BuilderInterface;
+use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
+use Ouxsoft\PHPMarkup\Contract\KernelInterface;
+use Ouxsoft\PHPMarkup\Engine;
+use Ouxsoft\PHPMarkup\Configuration;
+use Ouxsoft\PHPMarkup\Factory\ConcreteFactory;
+use Ouxsoft\PHPMarkup\Factory\ContainerFactory;
+use Ouxsoft\PHPMarkup\Document;
 use PHPUnit\Framework\TestCase;
-use Ouxsoft\LivingMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Exception\Exception;
 
 class KernelTest extends TestCase
 {
@@ -42,8 +42,8 @@ class KernelTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Kernel::__construct
-     * @covers \Ouxsoft\LivingMarkup\Kernel
+     * @covers \Ouxsoft\PHPMarkup\Kernel::__construct
+     * @covers \Ouxsoft\PHPMarkup\Kernel
      */
     public function test__construct()
     {
@@ -51,7 +51,7 @@ class KernelTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Kernel::getConfig
+     * @covers \Ouxsoft\PHPMarkup\Kernel::getConfig
      */
     public function testGetConfig()
     {
@@ -60,7 +60,7 @@ class KernelTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Kernel::setConfig
+     * @covers \Ouxsoft\PHPMarkup\Kernel::setConfig
      */
     public function testSetConfig()
     {
@@ -72,7 +72,7 @@ class KernelTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Kernel::setBuilder
+     * @covers \Ouxsoft\PHPMarkup\Kernel::setBuilder
      */
     public function testSetBuilder()
     {
@@ -90,7 +90,7 @@ class KernelTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Kernel::getBuilder
+     * @covers \Ouxsoft\PHPMarkup\Kernel::getBuilder
      */
     public function testGetBuilder()
     {
@@ -100,7 +100,7 @@ class KernelTest extends TestCase
 
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Kernel::build
+     * @covers \Ouxsoft\PHPMarkup\Kernel::build
      */
     public function testBuild()
     {

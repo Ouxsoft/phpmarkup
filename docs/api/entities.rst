@@ -1,7 +1,7 @@
 Entities
 ========
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Entities``
+:Qualified name: ``Ouxsoft\PHPMarkup\Entities``
 
 .. php:class:: Entities
 

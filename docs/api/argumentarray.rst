@@ -1,7 +1,7 @@
 ArgumentArray
 =============
 
-:Qualified name: ``Ouxsoft\LivingMarkup\ArgumentArray``
+:Qualified name: ``Ouxsoft\PHPMarkup\ArgumentArray``
 
 .. php:class:: ArgumentArray
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,15 +8,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit;
+namespace Ouxsoft\PHPMarkup\Tests\Unit;
 
-use Ouxsoft\LivingMarkup\Entities;
+use Ouxsoft\PHPMarkup\Entities;
 use PHPUnit\Framework\TestCase;
 
 class EntitiesTest extends TestCase
 {
     /**
-     * @covers \Ouxsoft\LivingMarkup\Entities::fetchString
+     * @covers \Ouxsoft\PHPMarkup\Entities::fetchString
      */
     public function testFetchString()
     {
@@ -26,7 +26,7 @@ class EntitiesTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Entities::get
+     * @covers \Ouxsoft\PHPMarkup\Entities::get
      */
     public function testGet()
     {
@@ -36,7 +36,7 @@ class EntitiesTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Entities::fetchArray
+     * @covers \Ouxsoft\PHPMarkup\Entities::fetchArray
      * @codeCoverageIgnore
      */
     public function testFetchArray()
@@ -47,7 +47,7 @@ class EntitiesTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Entities::getURL
+     * @covers \Ouxsoft\PHPMarkup\Entities::getURL
      */
     public function testGetURL()
     {

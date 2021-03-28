@@ -1,7 +1,7 @@
 SearchIndexBuilder
 ==================
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Builder\SearchIndexBuilder``
+:Qualified name: ``Ouxsoft\PHPMarkup\Builder\SearchIndexBuilder``
 :Implements: :interface:`BuilderInterface`
 
 .. php:class:: SearchIndexBuilder

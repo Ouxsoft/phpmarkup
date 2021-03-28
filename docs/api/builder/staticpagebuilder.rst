@@ -1,7 +1,7 @@
 StaticPageBuilder
 =================
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Builder\StaticPageBuilder``
+:Qualified name: ``Ouxsoft\PHPMarkup\Builder\StaticPageBuilder``
 :Implements: :interface:`BuilderInterface`
 
 .. php:class:: StaticPageBuilder

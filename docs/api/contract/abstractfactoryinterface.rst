@@ -1,7 +1,7 @@
 AbstractFactoryInterface
 ========================
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Contract\AbstractFactoryInterface``
+:Qualified name: ``Ouxsoft\PHPMarkup\Contract\AbstractFactoryInterface``
 
 .. php:interface:: AbstractFactoryInterface
 

@@ -1,7 +1,7 @@
 Kernel
 ======
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Kernel``
+:Qualified name: ``Ouxsoft\PHPMarkup\Kernel``
 :Implements: :interface:`KernelInterface`
 
 .. php:class:: Kernel

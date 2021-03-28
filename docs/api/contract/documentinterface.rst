@@ -1,7 +1,7 @@
 DocumentInterface
 =================
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Contract\DocumentInterface``
+:Qualified name: ``Ouxsoft\PHPMarkup\Contract\DocumentInterface``
 
 .. php:interface:: DocumentInterface
 

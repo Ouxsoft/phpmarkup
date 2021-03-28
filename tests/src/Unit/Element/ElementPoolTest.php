@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,18 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit\Element;
+namespace Ouxsoft\PHPMarkup\Tests\Unit\Element;
 
 use ArrayIterator;
-use Ouxsoft\LivingMarkup\Element\AbstractElement;
-use Ouxsoft\LivingMarkup\Element\ElementPool;
-use Ouxsoft\LivingMarkup\Tests\Resource\Element\HelloWorld;
+use Ouxsoft\PHPMarkup\Element\AbstractElement;
+use Ouxsoft\PHPMarkup\Element\ElementPool;
+use Ouxsoft\PHPMarkup\Tests\Resource\Element\HelloWorld;
 use PHPUnit\Framework\TestCase;
 
 class ElementPoolTest extends TestCase
 {
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\ElementPool::getIterator
+     * @covers \Ouxsoft\PHPMarkup\Element\ElementPool::getIterator
      */
     public function testGetIterator()
     {
@@ -28,7 +28,7 @@ class ElementPoolTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\ElementPool::getPropertiesById
+     * @covers \Ouxsoft\PHPMarkup\Element\ElementPool::getPropertiesById
      */
     public function testGetPropertiesById()
     {
@@ -39,7 +39,7 @@ class ElementPoolTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\ElementPool::getById
+     * @covers \Ouxsoft\PHPMarkup\Element\ElementPool::getById
      */
     public function testGetById()
     {
@@ -52,7 +52,7 @@ class ElementPoolTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\ElementPool::add
+     * @covers \Ouxsoft\PHPMarkup\Element\ElementPool::add
      */
     public function testAdd()
     {
@@ -63,7 +63,7 @@ class ElementPoolTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\ElementPool::callRoutine
+     * @covers \Ouxsoft\PHPMarkup\Element\ElementPool::callRoutine
      */
     public function testCallRoutine()
     {
@@ -73,7 +73,7 @@ class ElementPoolTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Element\ElementPool::count
+     * @covers \Ouxsoft\PHPMarkup\Element\ElementPool::count
      */
     public function testCount()
     {

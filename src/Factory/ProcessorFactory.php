@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup\Factory;
+namespace Ouxsoft\PHPMarkup\Factory;
 
-use Ouxsoft\LivingMarkup\Processor;
+use Ouxsoft\PHPMarkup\Processor;
 
 class ProcessorFactory
 {

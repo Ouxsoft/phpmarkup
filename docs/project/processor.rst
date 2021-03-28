@@ -12,7 +12,7 @@ buffer of the file.
 .. code:: php
 
     <?php
-    use Ouxsoft\LivingMarkup\Factory\ProcessorFactory;
+    use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 
     $processor = ProcessorFactory::getInstance();
 
@@ -56,7 +56,7 @@ router to prevent the need to declare the ``Processor`` within each file.
 
     <?php
 
-    use Ouxsoft\LivingMarkup\Factory\ProcessorFactory;
+    use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
     use Ouxsoft\Hoopless\Router;
 
     require_once '../vendor/autoload.php';
@@ -93,7 +93,7 @@ and a parse file containing markup.
 .. code:: php
 
     <?php
-    use Ouxsoft\LivingMarkup\Factory\ProcessorFactory;
+    use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 
     $processor = ProcessorFactory::getInstance();
 
@@ -121,7 +121,7 @@ parsing a string.
 .. code:: php
 
     <?php
-    use Ouxsoft\LivingMarkup\Factory\ProcessorFactory;
+    use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 
     $processor = ProcessorFactory::getInstance();
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,26 +10,26 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup;
+namespace Ouxsoft\PHPMarkup;
 
 use DOMElement;
 use DOMNodeList;
 use DOMXPath;
-use Ouxsoft\LivingMarkup\Contract\DocumentInterface;
-use Ouxsoft\LivingMarkup\Contract\ElementPoolInterface;
-use Ouxsoft\LivingMarkup\Contract\EngineInterface;
-use Ouxsoft\LivingMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Contract\DocumentInterface;
+use Ouxsoft\PHPMarkup\Contract\ElementPoolInterface;
+use Ouxsoft\PHPMarkup\Contract\EngineInterface;
+use Ouxsoft\PHPMarkup\Exception\Exception;
 
 /**
  * Class Engine
  *
  * The Engine loads a DOM object and modifies the Document.
  *
- * @package Ouxsoft\LivingMarkup\Engine
+ * @package Ouxsoft\PHPMarkup\Engine
  */
 class Engine implements EngineInterface
 {
-    // TODO: implement LivingMarkup const
+    // TODO: implement PHPMarkup const
     public const RETURN_CALL = 1;
 
     // marker attribute used by Engine to identify DOMElement during processing

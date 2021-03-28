@@ -1,7 +1,7 @@
 Configuration
 =============
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Configuration``
+:Qualified name: ``Ouxsoft\PHPMarkup\Configuration``
 :Implements: :interface:`ConfigurationInterface`
 
 .. php:class:: Configuration

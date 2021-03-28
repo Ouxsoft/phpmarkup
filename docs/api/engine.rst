@@ -1,7 +1,7 @@
 Engine
 ======
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Engine``
+:Qualified name: ``Ouxsoft\PHPMarkup\Engine``
 :Implements: :interface:`EngineInterface`
 
 .. php:class:: Engine

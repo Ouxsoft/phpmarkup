@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup;
+namespace Ouxsoft\PHPMarkup;
 
 use ArrayAccess;
 use Iterator;
@@ -19,7 +19,7 @@ use Countable;
 /**
  * Class ArgumentArray contains Element arguments
  *
- * @package Ouxsoft\LivingMarkup
+ * @package Ouxsoft\PHPMarkup
  */
 class ArgumentArray implements
     ArrayAccess,

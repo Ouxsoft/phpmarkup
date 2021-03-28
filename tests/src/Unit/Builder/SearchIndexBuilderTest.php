@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit\Builder;
+namespace Ouxsoft\PHPMarkup\Tests\Unit\Builder;
 
-use Ouxsoft\LivingMarkup\Builder\SearchIndexBuilder;
-use Ouxsoft\LivingMarkup\Factory\ProcessorFactory;
+use Ouxsoft\PHPMarkup\Builder\SearchIndexBuilder;
+use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use PHPUnit\Framework\TestCase;
 
 class SearchIndexBuilderTest extends TestCase
@@ -31,7 +31,7 @@ class SearchIndexBuilderTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Builder\SearchIndexBuilder::__construct
+     * @covers \Ouxsoft\PHPMarkup\Builder\SearchIndexBuilder::__construct
      */
     public function test__construct()
     {
@@ -40,7 +40,7 @@ class SearchIndexBuilderTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Builder\SearchIndexBuilder::getObject
+     * @covers \Ouxsoft\PHPMarkup\Builder\SearchIndexBuilder::getObject
      */
     public function testGetObject()
     {
@@ -53,7 +53,7 @@ class SearchIndexBuilderTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Builder\SearchIndexBuilder::createObject
+     * @covers \Ouxsoft\PHPMarkup\Builder\SearchIndexBuilder::createObject
      */
     public function testCreateObject()
     {

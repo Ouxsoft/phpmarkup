@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,20 +10,20 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup;
+namespace Ouxsoft\PHPMarkup;
 
-use Ouxsoft\LivingMarkup\Contract\BuilderInterface;
-use Ouxsoft\LivingMarkup\Contract\ConfigurationInterface;
-use Ouxsoft\LivingMarkup\Contract\EngineInterface;
-use Ouxsoft\LivingMarkup\Contract\KernelInterface;
-use Ouxsoft\LivingMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Contract\BuilderInterface;
+use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
+use Ouxsoft\PHPMarkup\Contract\EngineInterface;
+use Ouxsoft\PHPMarkup\Contract\KernelInterface;
+use Ouxsoft\PHPMarkup\Exception\Exception;
 
 /**
  * Class Kernel
  *
  * The Kernel passes a Configuration through a Builder to build a Engine
  *
- * @package Ouxsoft\LivingMarkup
+ * @package Ouxsoft\PHPMarkup
  */
 class Kernel implements KernelInterface
 {
@@ -84,7 +84,7 @@ class Kernel implements KernelInterface
      */
     public function setBuilder(string $builder_class): void
     {
-        $builder_class = 'Ouxsoft\\LivingMarkup\\Builder\\' . $builder_class;
+        $builder_class = 'Ouxsoft\\PHPMarkup\\Builder\\' . $builder_class;
 
         if (!class_exists($builder_class)) {
             throw new Exception('Builder class "' . $builder_class . '" does not exists');

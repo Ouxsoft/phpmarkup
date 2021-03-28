@@ -1,7 +1,7 @@
 AbstractElement
 ===============
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Element\AbstractElement``
+:Qualified name: ``Ouxsoft\PHPMarkup\Element\AbstractElement``
 
 .. php:class:: AbstractElement
 

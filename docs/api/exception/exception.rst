@@ -1,7 +1,7 @@
 Exception
 =========
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Exception\Exception``
+:Qualified name: ``Ouxsoft\PHPMarkup\Exception\Exception``
 
 .. php:class:: Exception
 

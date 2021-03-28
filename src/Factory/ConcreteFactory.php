@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,17 +10,17 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup\Factory;
+namespace Ouxsoft\PHPMarkup\Factory;
 
-use Ouxsoft\LivingMarkup\Contract\AbstractFactoryInterface;
-use Ouxsoft\LivingMarkup\Contract\BuilderInterface;
-use Ouxsoft\LivingMarkup\Contract\DocumentInterface;
-use Ouxsoft\LivingMarkup\Builder\DynamicPageBuilder;
-use Ouxsoft\LivingMarkup\Configuration;
-use Ouxsoft\LivingMarkup\Document;
-use Ouxsoft\LivingMarkup\Element\ElementPool;
-use Ouxsoft\LivingMarkup\Engine;
-use Ouxsoft\LivingMarkup\Kernel;
+use Ouxsoft\PHPMarkup\Contract\AbstractFactoryInterface;
+use Ouxsoft\PHPMarkup\Contract\BuilderInterface;
+use Ouxsoft\PHPMarkup\Contract\DocumentInterface;
+use Ouxsoft\PHPMarkup\Builder\DynamicPageBuilder;
+use Ouxsoft\PHPMarkup\Configuration;
+use Ouxsoft\PHPMarkup\Document;
+use Ouxsoft\PHPMarkup\Element\ElementPool;
+use Ouxsoft\PHPMarkup\Engine;
+use Ouxsoft\PHPMarkup\Kernel;
 use Pimple\Container;
 
 class ConcreteFactory implements AbstractFactoryInterface

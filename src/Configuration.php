@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -11,13 +11,13 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup;
+namespace Ouxsoft\PHPMarkup;
 
 use Laminas\Config\Reader\Json;
 use Laminas\Validator\File\Exists;
-use Ouxsoft\LivingMarkup\Contract\ConfigurationInterface;
-use Ouxsoft\LivingMarkup\Contract\DocumentInterface;
-use Ouxsoft\LivingMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
+use Ouxsoft\PHPMarkup\Contract\DocumentInterface;
+use Ouxsoft\PHPMarkup\Exception\Exception;
 use Throwable;
 
 /**
@@ -25,7 +25,7 @@ use Throwable;
  *
  * Contains a list of Elements, Routines, and the raw HTML/XML document source
  *
- * @package Ouxsoft\LivingMarkup
+ * @package Ouxsoft\PHPMarkup
  */
 class Configuration implements ConfigurationInterface
 {

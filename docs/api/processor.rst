@@ -1,7 +1,7 @@
 Processor
 =========
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Processor``
+:Qualified name: ``Ouxsoft\PHPMarkup\Processor``
 
 .. php:class:: Processor
 

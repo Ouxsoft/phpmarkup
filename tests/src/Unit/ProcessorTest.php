@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit;
+namespace Ouxsoft\PHPMarkup\Tests\Unit;
 
-use Ouxsoft\LivingMarkup\Contract\BuilderInterface;
-use Ouxsoft\LivingMarkup\Contract\ConfigurationInterface;
-use Ouxsoft\LivingMarkup\Builder\StaticPageBuilder;
-use Ouxsoft\LivingMarkup\Configuration;
-use Ouxsoft\LivingMarkup\Document;
-use Ouxsoft\LivingMarkup\Factory\ProcessorFactory;
+use Ouxsoft\PHPMarkup\Contract\BuilderInterface;
+use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
+use Ouxsoft\PHPMarkup\Builder\StaticPageBuilder;
+use Ouxsoft\PHPMarkup\Configuration;
+use Ouxsoft\PHPMarkup\Document;
+use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use PHPUnit\Framework\TestCase;
 
 class ProcessorTest extends TestCase
@@ -33,7 +33,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::setBuilder
+     * @covers \Ouxsoft\PHPMarkup\Processor::setBuilder
      */
     public function testSetBuilder()
     {
@@ -43,7 +43,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::getBuilder
+     * @covers \Ouxsoft\PHPMarkup\Processor::getBuilder
      */
     public function testGetBuilder()
     {
@@ -52,7 +52,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::parseFile
+     * @covers \Ouxsoft\PHPMarkup\Processor::parseFile
      */
     public function testParseFile()
     {
@@ -67,7 +67,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::loadConfig
+     * @covers \Ouxsoft\PHPMarkup\Processor::loadConfig
      */
     public function testLoadConfig()
     {
@@ -78,7 +78,7 @@ class ProcessorTest extends TestCase
 
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::setConfig
+     * @covers \Ouxsoft\PHPMarkup\Processor::setConfig
      */
     public function testSetConfig()
     {
@@ -92,7 +92,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::getConfig
+     * @covers \Ouxsoft\PHPMarkup\Processor::getConfig
      */
     public function testGetConfig()
     {
@@ -102,14 +102,14 @@ class ProcessorTest extends TestCase
 
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::addElement
+     * @covers \Ouxsoft\PHPMarkup\Processor::addElement
      */
     public function testAddElement()
     {
         $this->processor->addElement([
             'name' => 'HelloMyEverything',
             'xpath' => '//*',
-            'class_name' => '\LivingMarkup\Tests\Resource\Element\HelloWorld'
+            'class_name' => '\PHPMarkup\Tests\Resource\Element\HelloWorld'
         ]);
         $config = $this->processor->getConfig();
         $elements = $config->getElements();
@@ -117,7 +117,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::addRoutine
+     * @covers \Ouxsoft\PHPMarkup\Processor::addRoutine
      */
     public function testAddRoutine()
     {
@@ -130,7 +130,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::parseString
+     * @covers \Ouxsoft\PHPMarkup\Processor::parseString
      */
     public function testParseString()
     {
@@ -148,7 +148,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::__construct
+     * @covers \Ouxsoft\PHPMarkup\Processor::__construct
      */
     public function test__construct()
     {
@@ -162,7 +162,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::parseBuffer
+     * @covers \Ouxsoft\PHPMarkup\Processor::parseBuffer
      */
     public function testParseBuffer()
     {
@@ -175,8 +175,8 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::parseBuffer
-     * @covers \Ouxsoft\LivingMarkup\Processor::parse
+     * @covers \Ouxsoft\PHPMarkup\Processor::parseBuffer
+     * @covers \Ouxsoft\PHPMarkup\Processor::parse
      */
     public function testParseBufferWithProcessorOff()
     {
@@ -191,7 +191,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::setStatus
+     * @covers \Ouxsoft\PHPMarkup\Processor::setStatus
      */
     public function testSetStatus()
     {
@@ -205,7 +205,7 @@ class ProcessorTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Processor::getStatus
+     * @covers \Ouxsoft\PHPMarkup\Processor::getStatus
      */
     public function testGetStatus()
     {

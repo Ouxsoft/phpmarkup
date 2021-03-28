@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,14 +10,14 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup\Exception;
+namespace Ouxsoft\PHPMarkup\Exception;
 
 use RuntimeException;
 
 /**
  * Class Exception
  *
- * @package Ouxsoft\LivingMarkup
+ * @package Ouxsoft\PHPMarkup
  */
 class Exception extends RuntimeException
 {

@@ -1,7 +1,7 @@
 Document
 ========
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Document``
+:Qualified name: ``Ouxsoft\PHPMarkup\Document``
 :Implements: :interface:`DocumentInterface`
 
 .. php:class:: Document

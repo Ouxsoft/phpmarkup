@@ -1,20 +1,20 @@
 {
-  "name": "ouxsoft/livingmarkup",
+  "name": "ouxsoft/phpmarkup",
   "description": "A Processor for Markup written in PHP. Allows extraction of Markup into a data structure, orchestrated nested manipulation of said structure, and output as (optimized) Markup. ",
   "license": "MIT",
   "keywords": [
-    "LivingMarkup",
+    "PHPMarkup",
     "markup",
     "processor",
     "templating engine",
     "lhtml"
   ],
   "type": "library",
-  "homepage": "https://github.com/ouxsoft/LivingMarkup",
+  "homepage": "https://github.com/ouxsoft/PHPMarkup",
   "support": {
-    "docs": "https://livingmarkup.readthedocs.io",
-    "source": "https://github.com/ouxsoft/LivingMarkup",
-    "issues": "https://github.com/ouxsoft/LivingMarkup/issues"
+    "docs": "https://phpmarkup.readthedocs.io",
+    "source": "https://github.com/ouxsoft/PHPMarkup",
+    "issues": "https://github.com/ouxsoft/PHPMarkup/issues"
   },
   "require": {
     "php": "^7.3 || ~8.0.0",
@@ -31,12 +31,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Ouxsoft\\LivingMarkup\\": "src/"
+      "Ouxsoft\\PHPMarkup\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Ouxsoft\\LivingMarkup\\Tests\\": "tests/src/"
+      "Ouxsoft\\PHPMarkup\\Tests\\": "tests/src/"
     }
   },
   "scripts": {

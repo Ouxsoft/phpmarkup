@@ -1,7 +1,7 @@
 DynamicPageBuilder
 ==================
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Builder\DynamicPageBuilder``
+:Qualified name: ``Ouxsoft\PHPMarkup\Builder\DynamicPageBuilder``
 :Implements: :interface:`BuilderInterface`
 
 .. php:class:: DynamicPageBuilder

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,16 +10,16 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup;
+namespace Ouxsoft\PHPMarkup;
 
 use DomDocument;
-use Ouxsoft\LivingMarkup\Contract\DocumentInterface;
+use Ouxsoft\PHPMarkup\Contract\DocumentInterface;
 
 /**
  * Class Document
  * Hyperlink DomDocument that is loaded from a well formatted LHTML document and returns a HTML5
  *
- * @package Ouxsoft\LivingMarkup
+ * @package Ouxsoft\PHPMarkup
  */
 class Document extends DomDocument implements DocumentInterface
 {

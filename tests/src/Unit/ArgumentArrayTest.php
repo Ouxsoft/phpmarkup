@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,15 +8,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit;
+namespace Ouxsoft\PHPMarkup\Tests\Unit;
 
-use Ouxsoft\LivingMarkup\ArgumentArray;
+use Ouxsoft\PHPMarkup\ArgumentArray;
 use PHPUnit\Framework\TestCase;
 
 class ArgumentArrayTest extends TestCase
 {
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::count
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::count
      */
     public function testCount()
     {
@@ -26,7 +26,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::offsetSet
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::offsetSet
      */
     public function testOffsetSet()
     {
@@ -55,7 +55,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::offsetExists
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::offsetExists
      */
     public function testOffsetExists()
     {
@@ -66,7 +66,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::get
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::get
      */
     public function testGet()
     {
@@ -76,7 +76,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::offsetGet
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::offsetGet
      */
     public function testOffsetGet()
     {
@@ -86,7 +86,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::offsetUnset
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::offsetUnset
      */
     public function testOffsetUnset()
     {
@@ -97,7 +97,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::merge
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::merge
      */
     public function testMerge()
     {
@@ -107,7 +107,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::current
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::current
      */
     public function testCurrent()
     {
@@ -117,7 +117,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::next
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::next
      */
     public function testNext()
     {
@@ -131,7 +131,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::key
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::key
      */
     public function testKey()
     {
@@ -141,7 +141,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::valid
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::valid
      */
     public function testValid()
     {
@@ -151,7 +151,7 @@ class ArgumentArrayTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\ArgumentArray::rewind
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::rewind
      */
     public function testRewind()
     {

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Resource\Element;
+namespace Ouxsoft\PHPMarkup\Tests\Resource\Element;
 
-use Ouxsoft\LivingMarkup\Element\AbstractElement as AbstractElement;
+use Ouxsoft\PHPMarkup\Element\AbstractElement as AbstractElement;
 
 /**
  * Class HelloWorld
@@ -19,7 +19,7 @@ use Ouxsoft\LivingMarkup\Element\AbstractElement as AbstractElement;
  *
  * <widget name="HelloWorld"/>
  *
- * @package Ouxsoft\LivingMarkup\Elements\Widgets
+ * @package Ouxsoft\PHPMarkup\Elements\Widgets
  */
 class HelloWorld extends AbstractElement
 {

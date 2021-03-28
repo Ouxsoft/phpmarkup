@@ -1,7 +1,7 @@
 ConfigurationInterface
 ======================
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Contract\ConfigurationInterface``
+:Qualified name: ``Ouxsoft\PHPMarkup\Contract\ConfigurationInterface``
 
 .. php:interface:: ConfigurationInterface
 

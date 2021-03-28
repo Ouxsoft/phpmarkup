@@ -1,7 +1,7 @@
 ElementPoolInterface
 ====================
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Contract\ElementPoolInterface``
+:Qualified name: ``Ouxsoft\PHPMarkup\Contract\ElementPoolInterface``
 
 .. php:interface:: ElementPoolInterface
 

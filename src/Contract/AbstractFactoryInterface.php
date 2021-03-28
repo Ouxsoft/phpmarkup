@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,19 +8,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Contract;
+namespace Ouxsoft\PHPMarkup\Contract;
 
-use Ouxsoft\LivingMarkup\Contract\BuilderInterface;
-use Ouxsoft\LivingMarkup\Configuration;
-use Ouxsoft\LivingMarkup\Document;
-use Ouxsoft\LivingMarkup\Element\ElementPool;
-use Ouxsoft\LivingMarkup\Engine;
-use Ouxsoft\LivingMarkup\Kernel;
+use Ouxsoft\PHPMarkup\Contract\BuilderInterface;
+use Ouxsoft\PHPMarkup\Configuration;
+use Ouxsoft\PHPMarkup\Document;
+use Ouxsoft\PHPMarkup\Element\ElementPool;
+use Ouxsoft\PHPMarkup\Engine;
+use Ouxsoft\PHPMarkup\Kernel;
 use Pimple\Container;
 
 /**
  * Interface AbstractFactoryInterface
- * @package Ouxsoft\LivingMarkup\Contract
+ * @package Ouxsoft\PHPMarkup\Contract
  */
 interface AbstractFactoryInterface
 {

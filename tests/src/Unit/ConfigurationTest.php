@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,12 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit;
+namespace Ouxsoft\PHPMarkup\Tests\Unit;
 
-use Ouxsoft\LivingMarkup\Factory\ContainerFactory;
-use Ouxsoft\LivingMarkup\Factory\ConcreteFactory;
+use Ouxsoft\PHPMarkup\Factory\ContainerFactory;
+use Ouxsoft\PHPMarkup\Factory\ConcreteFactory;
 use PHPUnit\Framework\TestCase;
-use Ouxsoft\LivingMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Exception\Exception;
 
 class ConfigurationTest extends TestCase
 {
@@ -32,26 +32,26 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Configuration::addElement
+     * @covers \Ouxsoft\PHPMarkup\Configuration::addElement
      */
     public function testAddElement()
     {
         $this->config->addElement([
             'name' => 'Bitwise',
-            'class_name' => 'Ouxsoft\LivingMarkup\Tests\Resource\Element\Bitwise',
+            'class_name' => 'Ouxsoft\PHPMarkup\Tests\Resource\Element\Bitwise',
             'xpath' => 'bitwise'
         ]);
         $this->assertCount(1, $this->config->getElements());
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Configuration::getElements
+     * @covers \Ouxsoft\PHPMarkup\Configuration::getElements
      */
     public function testGetElements()
     {
         $element = [
             'name' => 'Bitwise',
-            'class_name' => 'Ouxsoft\LivingMarkup\Tests\Resource\Element\Bitwise',
+            'class_name' => 'Ouxsoft\PHPMarkup\Tests\Resource\Element\Bitwise',
             'xpath' => 'bitwise'
         ];
         $this->config->addElement($element);
@@ -60,7 +60,7 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Configuration::addRoutine
+     * @covers \Ouxsoft\PHPMarkup\Configuration::addRoutine
      */
     public function testAddRoutine()
     {
@@ -73,7 +73,7 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Configuration::getRoutines
+     * @covers \Ouxsoft\PHPMarkup\Configuration::getRoutines
      */
     public function testGetRoutines()
     {
@@ -89,7 +89,7 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Configuration::getMarkup
+     * @covers \Ouxsoft\PHPMarkup\Configuration::getMarkup
      */
     public function testGetMarkup()
     {
@@ -100,7 +100,7 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Configuration::setMarkup
+     * @covers \Ouxsoft\PHPMarkup\Configuration::setMarkup
      */
     public function testSetMarkup()
     {
@@ -110,19 +110,19 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Configuration::addElements
+     * @covers \Ouxsoft\PHPMarkup\Configuration::addElements
      */
     public function testAddElements()
     {
         $this->config->addElements([
             [
                 'name' => 'Bitwise',
-                'class_name' => 'Ouxsoft\LivingMarkup\Tests\Resource\Element\Bitwise',
+                'class_name' => 'Ouxsoft\PHPMarkup\Tests\Resource\Element\Bitwise',
                 'xpath' => 'bitwise'
             ],
             [
                 'name' => 'HelloWorld',
-                'class_name' => 'Ouxsoft\LivingMarkup\Tests\Resource\Element\HelloWorld',
+                'class_name' => 'Ouxsoft\PHPMarkup\Tests\Resource\Element\HelloWorld',
                 'xpath' => 'helloworld'
             ]
         ]);
@@ -130,7 +130,7 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Configuration::loadFile
+     * @covers \Ouxsoft\PHPMarkup\Configuration::loadFile
      */
     public function testLoadFile()
     {

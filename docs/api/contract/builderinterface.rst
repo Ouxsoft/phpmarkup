@@ -1,7 +1,7 @@
 BuilderInterface
 ================
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Contract\BuilderInterface``
+:Qualified name: ``Ouxsoft\PHPMarkup\Contract\BuilderInterface``
 
 .. php:interface:: BuilderInterface
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\LivingMarkup\Element;
+namespace Ouxsoft\PHPMarkup\Element;
 
-use Ouxsoft\LivingMarkup\ArgumentArray;
+use Ouxsoft\PHPMarkup\ArgumentArray;
 
 /**
  * Class Element
@@ -20,7 +20,7 @@ use Ouxsoft\LivingMarkup\ArgumentArray;
  * An abstract class extended to instantiate Elements. During construction arguments and xml contained within
  * the Page's DomElement are passed to constructor.
  *
- * @package Ouxsoft\LivingMarkup\Element
+ * @package Ouxsoft\PHPMarkup\Element
  */
 abstract class AbstractElement
 {

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Resource\Element;
+namespace Ouxsoft\PHPMarkup\Tests\Resource\Element;
 
-use Ouxsoft\LivingMarkup\Element\AbstractElement as AbstractElement;
+use Ouxsoft\PHPMarkup\Element\AbstractElement as AbstractElement;
 
 /**
  * Class Bitwise
- * @package Ouxsoft\LivingMarkup\Test
+ * @package Ouxsoft\PHPMarkup\Test
  */
 class Bitwise extends AbstractElement
 {

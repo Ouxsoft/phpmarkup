@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit\Builder;
+namespace Ouxsoft\PHPMarkup\Tests\Unit\Builder;
 
-use Ouxsoft\LivingMarkup\Builder\DynamicPageBuilder;
-use Ouxsoft\LivingMarkup\Factory\ProcessorFactory;
+use Ouxsoft\PHPMarkup\Builder\DynamicPageBuilder;
+use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use PHPUnit\Framework\TestCase;
 
 class DynamicPageBuilderTest extends TestCase
@@ -31,7 +31,7 @@ class DynamicPageBuilderTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Builder\DynamicPageBuilder::__construct
+     * @covers \Ouxsoft\PHPMarkup\Builder\DynamicPageBuilder::__construct
      */
     public function test__construct()
     {
@@ -40,7 +40,7 @@ class DynamicPageBuilderTest extends TestCase
     }
 
     /**
-    * @covers \Ouxsoft\LivingMarkup\Builder\DynamicPageBuilder::getObject
+    * @covers \Ouxsoft\PHPMarkup\Builder\DynamicPageBuilder::getObject
     */
     public function testGetObject()
     {
@@ -53,7 +53,7 @@ class DynamicPageBuilderTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Builder\DynamicPageBuilder::createObject
+     * @covers \Ouxsoft\PHPMarkup\Builder\DynamicPageBuilder::createObject
      */
     public function testCreateObject()
     {

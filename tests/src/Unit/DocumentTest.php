@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) 2017-2021 Ouxsoft  <contact@ouxsoft.com>
  *
@@ -8,15 +8,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\LivingMarkup\Tests\Unit;
+namespace Ouxsoft\PHPMarkup\Tests\Unit;
 
-use Ouxsoft\LivingMarkup\Document;
+use Ouxsoft\PHPMarkup\Document;
 use PHPUnit\Framework\TestCase;
 
 class DocumentTest extends TestCase
 {
     /**
-     * @covers \Ouxsoft\LivingMarkup\Document::loadSource
+     * @covers \Ouxsoft\PHPMarkup\Document::loadSource
      */
     public function testLoadSource()
     {
@@ -61,7 +61,7 @@ class DocumentTest extends TestCase
     }
 
     /**
-     * @covers \Ouxsoft\LivingMarkup\Document::__construct
+     * @covers \Ouxsoft\PHPMarkup\Document::__construct
      */
     public function test__construct()
     {

@@ -1,7 +1,7 @@
 ContainerFactory
 ================
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Factory\ContainerFactory``
+:Qualified name: ``Ouxsoft\PHPMarkup\Factory\ContainerFactory``
 
 .. php:class:: ContainerFactory
 

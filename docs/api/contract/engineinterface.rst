@@ -1,7 +1,7 @@
 EngineInterface
 ===============
 
-:Qualified name: ``Ouxsoft\LivingMarkup\Contract\EngineInterface``
+:Qualified name: ``Ouxsoft\PHPMarkup\Contract\EngineInterface``
 
 .. php:interface:: EngineInterface
 
