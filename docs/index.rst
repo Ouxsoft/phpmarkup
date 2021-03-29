@@ -75,4 +75,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`search`
 
-.. |alt text| image:: https://github.com/hxtree/PHPMarkup/raw/master/docs/logo.jpg
+.. |alt text| image:: https://github.com/ouxsoft/PHPMarkup/raw/master/docs/logo.jpg
