@@ -27,7 +27,7 @@ PHPMarkup is available on [Packagist](https://packagist.org/packages/Ouxsoft/liv
 
 Install with [Composer](https://getcomposer.org/download/):
 ```shell script
-composer require Ouxsoft/phpmarkup
+composer require ouxsoft/phpmarkup
 ```
 
 ### Via Git
