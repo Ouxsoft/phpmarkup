@@ -11,7 +11,7 @@ php:
 env:
   global:
     - LOG_DIR=build/logs
-    - CODECOV_TOKEN=457b2ab8-8d1c-4dc7-8487-5910853fbbe1
+    - CODECOV_TOKEN=db7401ff-3226-4288-af9a-56386d63ae43
 
 before_install:
 
