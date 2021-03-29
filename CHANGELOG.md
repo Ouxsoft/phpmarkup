@@ -9,9 +9,10 @@ All releases must adhere to [SemVer 2](https://semver.org/) naming convention an
 >PATCH version - when you make backwards compatible bug fixes.
 
 ## PHPMarkup [Unreleased]
+Released: TBA. Notable changes:
 
 ## PHPMarkup 4.0.0
-Released: TBD. Notable changes:
+Released: 2021-03-28. Notable changes:
 * Added: Code of conduct.
 * Added: PSR 12 Coding Standard.
 * Changed: Repo name from "LivingMarkup" to PHPMarkup.
