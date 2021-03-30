@@ -20,6 +20,35 @@ A Processor for Markup based on the [LHTML](https://github.com/Ouxsoft/LHTML) st
 Allows extraction of Markup into a data structure, orchestrated manipulation of said structure, and output as 
 (optimized) Markup. 
 
+```php
+<?php
+
+use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
+
+// An example class mapped to a DOMElement
+class HelloWorld extends Ouxsoft\PHPMarkup\Element
+{
+    public function onRender()
+    {
+        return 'Hello, ' . $this->getArgByName('who');
+    }
+}
+
+// Instantiate and config Processor to parse buffer
+$processor = ProcessorFactory::getInstance();
+$processor->addElement(['xpath' => '//example','class_name' => 'HelloWorld']);
+$processor->addRoutine(['method' => 'onRender','execute' => 'RETURN_CALL']);
+$processor->parseBuffer();
+
+// outputs Hello, World
+?>
+<html lang="en">
+    <example>
+        <arg name="who">World</arg>
+    </example>
+</html>
+```
+
 ## Installation
 
 ### Via Composer
