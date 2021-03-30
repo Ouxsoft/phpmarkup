@@ -20,32 +20,37 @@ A Processor for Markup based on the [LHTML](https://github.com/Ouxsoft/LHTML) st
 Allows extraction of Markup into a data structure, orchestrated manipulation of said structure, and output as 
 (optimized) Markup. 
 
+**Basic Example**
 ```php
-<?php
-
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 
-// An example class mapped as an Element to DOMElement
-class HelloWorld extends Ouxsoft\PHPMarkup\Element
+/**
+ * Class SayHello
+ * DomElement process class
+ */
+class SayHello extends Ouxsoft\PHPMarkup\Element
 {
-    public function onRender()
+    /**
+     * @return string
+     */
+    public function onRender(): string
     {
-        return 'Hello, ' . $this->getArgByName('who');
+        return 'Hello, ' . $this->getArgByName('who') . $this->innerText();
     }
 }
 
-// Instantiate Processor and configure to parse buffer
+// Instantiate Processor and configure to parse output buffer
 $processor = ProcessorFactory::getInstance();
-$processor->addElement(['xpath' => '//example','class_name' => 'HelloWorld']);
-$processor->addRoutine(['method' => 'onRender','execute' => 'RETURN_CALL']);
+$processor->addElement(['xpath' => '//greetings', 'class_name' => 'SayHello']);
+$processor->addRoutine(['method' => 'onRender', 'execute' => 'RETURN_CALL']);
 $processor->parseBuffer();
 
-// displays "Hello, World" in Browser
+// Displays "Hello, World!" when rendered by Browser
 ?>
 <html lang="en">
-    <example>
-        <arg name="who">World</arg>
-    </example>
+    <greetings>
+        <arg name="who">World</arg>!
+    </greetings>
 </html>
 ```
 
