@@ -25,7 +25,7 @@ Allows extraction of Markup into a data structure, orchestrated manipulation of 
 
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 
-// An example class mapped to a DOMElement
+// An example class mapped as an Element to DOMElement
 class HelloWorld extends Ouxsoft\PHPMarkup\Element
 {
     public function onRender()
@@ -34,13 +34,13 @@ class HelloWorld extends Ouxsoft\PHPMarkup\Element
     }
 }
 
-// Instantiate and config Processor to parse buffer
+// Instantiate Processor and configure to parse buffer
 $processor = ProcessorFactory::getInstance();
 $processor->addElement(['xpath' => '//example','class_name' => 'HelloWorld']);
 $processor->addRoutine(['method' => 'onRender','execute' => 'RETURN_CALL']);
 $processor->parseBuffer();
 
-// outputs Hello, World
+// displays "Hello, World" in Browser
 ?>
 <html lang="en">
     <example>
