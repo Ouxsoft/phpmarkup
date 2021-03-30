@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/Ouxsoft/PHPMarkup/raw/master/docs/logo.jpg" width="400"></p>
+<p align="center"><img src="https://github.com/Ouxsoft/PHPMarkup/raw/master/docs/logo.jpg" width="200"></p>
 
 <p align="center">
     <a href="https://travis-ci.com/github/Ouxsoft/PHPMarkup"><img src="https://api.travis-ci.com/Ouxsoft/PHPMarkup.svg?branch=master&status=passed" alt="Build Status"></a>
