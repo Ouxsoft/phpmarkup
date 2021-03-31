@@ -32,21 +32,28 @@ class Engine implements EngineInterface
     // TODO: implement PHPMarkup const
     public const RETURN_CALL = 1;
 
-    // marker attribute used by Engine to identify DOMElement during processing
+    /**
+     * marker attribute used by Engine to identify DOMElement during processing
+     */
     public const INDEX_ATTRIBUTE = '_ELEMENT_ID';
 
-    // Document Object Model (DOM)
+    /**
+     * @var DOM
+     */
     public $dom;
 
-    // ElementPool
+    /**
+     * @var ElementPool
+     */
     public $element_pool;
 
-    // registered includes added during output
+    /**
+     * @var array[] registered includes added during output
+     */
     public $includes = [
         'js' => [],
         'css' => []
     ];
-
 
     /**
      * Engine constructor.
@@ -67,7 +74,7 @@ class Engine implements EngineInterface
      * Call Hooks
      *
      * @param array $routine
-     * @return bool-
+     * @return bool
      */
     public function callRoutine(array $routine): bool
     {
