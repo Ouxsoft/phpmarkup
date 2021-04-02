@@ -1,8 +1,10 @@
 language: php
 
 branches:
-  only:
-    - master
+  except:
+    - legacy
+#  only:
+#    - master
 
 php:
   - 7.3
