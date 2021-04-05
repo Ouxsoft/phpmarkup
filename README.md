@@ -20,10 +20,9 @@ A Processor for Markup based on the [LHTML](https://github.com/Ouxsoft/LHTML) st
 Allows extraction of Markup into a data structure, orchestrated manipulation of said structure, and output as 
 (optimized) Markup. 
 
-**Basic Example**
+### Instructions
+Create a PHPMarkup Element class used for processing
 ```php
-use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
-
 /**
  * Class SayHello
  * DomElement process class
@@ -38,6 +37,12 @@ class SayHello extends Ouxsoft\PHPMarkup\Element
         return 'Hello, ' . $this->getArgByName('who') . $this->innerText();
     }
 }
+```
+
+Then add the class with a processor.
+
+```php
+use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 
 // Instantiate Processor and configure to parse output buffer
 $processor = ProcessorFactory::getInstance();
@@ -75,10 +80,9 @@ Read our docs for usage [phpmarkup.readthedocs.io](https://phpmarkup.readthedocs
 
 ## Contributing
 PHPMarkup is an open source project. If you find a problem or want to discuss new features or improvements
-please create an issue, and/or if possible create a pull request. 
-
-[phpmarkup-stack](https://github.com/Ouxsoft/phpmarkup-stack) is docker development environment 
-with test suite available to make contributing simpler.
+please create an issue, and/or if possible create a pull request. Contributing is made is with  
+[phpmarkup-stack](https://github.com/Ouxsoft/phpmarkup-stack) a docker based development environment 
+with test suite.
 
 ## Acknowledgement
 Thanks to Matthew Heroux for leading the development of PHPMarkup. 
