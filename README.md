@@ -79,9 +79,8 @@ Read our docs for usage [phpmarkup.readthedocs.io](https://phpmarkup.readthedocs
 
 ## Contributing
 PHPMarkup is an open source project. If you find a problem or want to discuss new features or improvements
-please create an issue, and/or if possible create a pull request. Contributing is made is with  
-[phpmarkup-stack](https://github.com/Ouxsoft/phpmarkup-stack) a docker based development environment 
-with test suite.
+please create an issue, and/or if possible create a pull request. Contributing is easy with [phpmarkup-stack](https://github.com/Ouxsoft/phpmarkup-stack) 
+a docker based development environment with test suite.
 
 ## Acknowledgement
 Thanks to Matthew Heroux for leading the development of PHPMarkup. 
