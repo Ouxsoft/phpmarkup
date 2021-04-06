@@ -11,6 +11,10 @@ All releases must adhere to [SemVer 2](https://semver.org/) naming convention an
 ## PHPMarkup [Unreleased]
 Released: TBA. Notable changes:
 
+## PHPMarkup 4.0.1
+Released: 2021-04-06. Notable changes:
+* Added: PHP 8 Support.
+
 ## PHPMarkup 4.0.0
 Released: 2021-03-28. Notable changes:
 * Added: Code of conduct.
