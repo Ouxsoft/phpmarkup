@@ -3,7 +3,7 @@
 <p align="center">
     <a href="https://travis-ci.com/github/Ouxsoft/PHPMarkup"><img src="https://api.travis-ci.com/Ouxsoft/PHPMarkup.svg?branch=master&status=passed" alt="Build Status"></a>
     <a href="https://app.codacy.com/gh/Ouxsoft/PHPMarkup?utm_source=github.com&utm_medium=referral&utm_content=Ouxsoft/PHPMarkup&utm_campaign=Badge_Grade_Dashboard"><img alt="Codacy grade" src="https://img.shields.io/codacy/grade/86210d48e2ca45e497be865ace8a4029"></a>
-    <a href="https://codecov.io/gh/Ouxsoft/PHPMarkup"> <img alt="Codecov" src="https://img.shields.io/codecov/c/github/Ouxsoft/phpmarkup"> </a> 
+    <a href="https://codecov.io/gh/Ouxsoft/phpmarkup"> <img alt="Codecov" src="https://img.shields.io/codecov/c/github/Ouxsoft/phpmarkup"> </a> 
     <a href="https://phpmarkup.readthedocs.io/en/latest/?badge=latest"><img src="https://readthedocs.org/projects/phpmarkup/badge/?version=latest" alt="Documentation Status"></a> 
 </p>
 
