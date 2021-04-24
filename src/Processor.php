@@ -25,9 +25,19 @@ use Ouxsoft\PHPMarkup\Contract\KernelInterface;
  */
 class Processor
 {
-    // determines if process is active
+    /**
+     * @var bool used to determine if process is active
+     */
     private $active = true;
+
+    /**
+     * @var ConfigurationInterface
+     */
     private $config;
+
+    /**
+     * @var KernelInterface
+     */
     private $kernel;
 
     /**
