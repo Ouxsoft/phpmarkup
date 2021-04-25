@@ -14,13 +14,12 @@
 </p>
 
 ## About
-
-A Processor for Markup based on the [LHTML](https://github.com/Ouxsoft/LHTML) standard written in PHP. 
-Allows extraction of Markup into a data structure, orchestrated manipulation of said structure, and output as 
-(optimized) Markup. 
+PHPMarkup is a markup processor based on the [LHTML](https://github.com/Ouxsoft/LHTML) standard written in PHP. 
+It facilitates the extraction of markup into a data structure, orchestrated manipulation of said structure, and output as 
+(optimized) markup. 
 
 ### Instructions
-Create a PHPMarkup Element class used for processing
+Create a PHPMarkup Element to instruct DOMElement processing.
 ```php
 /**
  * Class SayHello
@@ -38,7 +37,7 @@ class SayHello extends Ouxsoft\PHPMarkup\Element
 }
 ```
 
-Then add the class with a processor.
+Process a DOM using the class created.
 
 ```php
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
@@ -75,11 +74,11 @@ git clone git@github.com:Ouxsoft/phpmarkup.git
 ```
 
 ## Documentation
-Read our docs for usage [phpmarkup.readthedocs.io](https://phpmarkup.readthedocs.io).
+Read the docs [phpmarkup.readthedocs.io](https://phpmarkup.readthedocs.io).
 
 ## Contributing
 PHPMarkup is an open source project. If you find a problem or want to discuss new features or improvements
-please create an issue, and/or if possible create a pull request. Contributing is easy with [phpmarkup-stack](https://github.com/Ouxsoft/phpmarkup-stack) 
+**please** create an issue, and/or if possible create a pull request. Contributing is easy with [phpmarkup-stack](https://github.com/Ouxsoft/phpmarkup-stack) 
 a docker based development environment with test suite.
 
 ## Acknowledgement
