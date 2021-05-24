@@ -24,23 +24,49 @@ use Ouxsoft\PHPMarkup\ArgumentArray;
  */
 abstract class AbstractElement
 {
-    // id used to reference object
+    /**
+     * @var int|string the id used to reference object
+     */
     public $element_id = 0;
-    // id used to load args
+
+    /**
+     * @var int id used to load args
+     */
     public $id = 0;
-    // name of element
+
+    /**
+     * @var string the name of element
+     */
     public $name = 'unknown';
-    // args passed to during construction
+
+    /**
+     * @var array|ArgumentArray|null args passed to during construction
+     */
     public $args = [];
-    // tags used for filtering
+
+    /**
+     * @var array  tags used for filtering
+     */
     public $tags = [];
-    // render in search result builder
+
+    /**
+     * @var bool render in search result builder
+     */
     public $search_index = true;
-    // maximum results of data pulled
+
+    /**
+     * @var string maximum results of data pulled
+     */
     public $max_results = '240';
-    // ancestor public variable updated live
+
+    /**
+     * @var array ancestor public variable updated live
+     */
     public $ancestors = [];
-    // inner content updated live
+
+    /**
+     * @var string inner content updated live
+     */
     public $xml = '';
 
     /**
@@ -112,6 +138,7 @@ abstract class AbstractElement
 
     /**
      * Get innerText
+     *
      * @return string|null
      */
     public function innerText(): ?string
