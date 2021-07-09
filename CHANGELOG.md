@@ -15,6 +15,10 @@ Released: TBA. Notable changes:
 Released: 2021-07-09. Notable changes:
 * Added: Support for Args to contain XML.
 
+## PHPMarkup 4.0.2
+Released: 2021-04-24. Notable changes:
+* Updated: Vendor packages.
+
 ## PHPMarkup 4.0.1
 Released: 2021-04-06. Notable changes:
 * Added: PHP 8 Support.
