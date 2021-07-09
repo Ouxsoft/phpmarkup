@@ -368,7 +368,11 @@ class Engine implements EngineInterface
             }
 
             // get value
-            $value = $child_node->nodeValue;
+            $innerHTML = '';
+            foreach ($child_node->childNodes as $child) {
+                $innerHTML .= $element->ownerDocument->saveXML($child);
+            }
+            $value = $innerHTML;
 
             // get type
             $type = $child_node->getAttribute('type') ?? 'string';
