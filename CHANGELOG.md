@@ -13,7 +13,7 @@ Released: TBA. Notable changes:
 
 ## PHPMarkup 4.2.2
 Released: 2021-07-12. Notable changes:
-* Added: Fix add Properties bug.
+* Fixed: Add Properties bug.
 
 ## PHPMarkup 4.2.1
 Released: 2021-07-11. Notable changes:
