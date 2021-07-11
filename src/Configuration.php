@@ -33,13 +33,35 @@ class Configuration implements ConfigurationInterface
     public const LOCAL_FILENAME = 'config.json';
     public const DIST_FILENAME = 'config.dist.json';
 
-    private $document;
+    /**
+     * @var DocumentInterface
+     */
+    protected $document;
 
-    public $version;
-    public $elements = [];
+    /**
+     * @var string the current loaded config format version
+     */
+    protected $version;
+
+    /**
+     * @var array an array of xpath queries, class names, and settings of elements
+     */
+    protected $elements = [];
+
+    /**
+     * @var array references to external elemental properties that are set as references
+     */
     protected $properties = [];
-    public $routines = [];
-    public $markup = '';
+
+    /**
+     * @var array methods that are automatically invoked within all elements that feature method
+     */
+    protected $routines = [];
+
+    /**
+     * @var string the markup (XML or HTML)
+     */
+    protected $markup = '';
 
     /**
      * Configuration constructor
