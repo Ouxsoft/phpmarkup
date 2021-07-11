@@ -7,18 +7,23 @@ KernelInterface
 
   .. php:method:: public __construct (EngineInterface`  $engine, BuilderInterface`  $builder, ConfigurationInterface`  $config)
 
+    :class:`KernelInterface` constructor.
+
     :param EngineInterface`  $engine:
     :param BuilderInterface`  $builder:
     :param ConfigurationInterface`  $config:
 
-  .. php:method:: public build ()
+  .. php:method:: public build () -> Engine
 
+    :returns: :class:`Engine` -- 
 
-  .. php:method:: public getBuilder ()
+  .. php:method:: public getBuilder () -> BuilderInterface
 
+    :returns: :class:`BuilderInterface` -- 
 
-  .. php:method:: public getConfig ()
+  .. php:method:: public getConfig () -> ConfigurationInterface
 
+    :returns: :class:`ConfigurationInterface` -- 
 
   .. php:method:: public setBuilder (string $builder_class)
 

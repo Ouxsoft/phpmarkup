@@ -26,6 +26,19 @@ Configuration
 
     :param array $elements:
 
+  .. php:method:: public addProperties (array & $properties)
+
+    Add multiple properties
+
+    :param array & $properties:
+
+  .. php:method:: public addProperty (string $property_name, & $property_value)
+
+    Add an property that will be passed to and become an property of all initialized elements
+
+    :param string $property_name:
+    :param & $property_value:
+
   .. php:method:: public addRoutine (array $routine)
 
     Adds a routine
@@ -54,6 +67,12 @@ Configuration
     Get source
 
     :returns: string -- 
+
+  .. php:method:: public getProperties () -> array
+
+    Get element params
+
+    :returns: array -- 
 
   .. php:method:: public getRoutines () -> array
 

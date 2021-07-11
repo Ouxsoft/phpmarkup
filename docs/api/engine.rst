@@ -6,12 +6,13 @@ Engine
 
 .. php:class:: Engine
 
-  .. php:method:: public __construct (DocumentInterface`  $document, ElementPoolInterface`  $element_pool)
+  .. php:method:: public __construct (DocumentInterface`  $document, ElementPoolInterface`  $element_pool, Configuration`  $config)
 
-    :class:`Engine` constructor.
+    EngineInterface constructor.
 
     :param DocumentInterface`  $document:
     :param ElementPoolInterface`  $element_pool:
+    :param Configuration`  $config:
 
   .. php:method:: public __toString () -> string
 
@@ -19,12 +20,12 @@ Engine
 
     :returns: string -- 
 
-  .. php:method:: public callRoutine (array $routine)
+  .. php:method:: public callRoutine (array $routine) -> bool
 
     Call Hooks
 
     :param array $routine:
-    :returns: bool-
+    :returns: bool -- 
 
   .. php:method:: public getDomElementByPlaceholderId (string $element_id)
 
