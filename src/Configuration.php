@@ -23,7 +23,7 @@ use Throwable;
 /**
  * Class Configuration
  *
- * Contains a list of Elements, Routines, and the raw HTML/XML document source
+ * Contains a list of Elements, Properties, Routines, and the raw HTML/XML document source
  *
  * @package Ouxsoft\PHPMarkup
  */
@@ -33,12 +33,35 @@ class Configuration implements ConfigurationInterface
     public const LOCAL_FILENAME = 'config.json';
     public const DIST_FILENAME = 'config.dist.json';
 
-    private $document;
+    /**
+     * @var DocumentInterface
+     */
+    protected $document;
 
-    public $version;
-    public $elements = [];
-    public $routines = [];
-    public $markup = '';
+    /**
+     * @var string the current loaded config format version
+     */
+    protected $version;
+
+    /**
+     * @var array an array of xpath queries, class names, and settings of elements
+     */
+    protected $elements = [];
+
+    /**
+     * @var array references to external elemental properties that are set as references
+     */
+    protected $properties = [];
+
+    /**
+     * @var array methods that are automatically invoked within all elements that feature method
+     */
+    protected $routines = [];
+
+    /**
+     * @var string the markup (XML or HTML)
+     */
+    protected $markup = '';
 
     /**
      * Configuration constructor
@@ -107,6 +130,7 @@ class Configuration implements ConfigurationInterface
     {
         $this->version = self::VERSION;
         $this->elements = [];
+        $this->properties = [];
         $this->routines = [];
         $this->markup = '';
     }
@@ -129,6 +153,9 @@ class Configuration implements ConfigurationInterface
                     break;
                 case 'elements':
                     $this->addElements($value);
+                    break;
+                case 'properties':
+                    $this->addProperties($value);
                     break;
                 case 'routines':
                     $this->addRoutines($value);
@@ -191,6 +218,39 @@ class Configuration implements ConfigurationInterface
     public function getElements(): array
     {
         return $this->elements;
+    }
+
+    /**
+     * Add an property that will be passed to and become an property of all initialized elements
+     *
+     * @param $property_name
+     * @param $property_value
+     */
+    public function addProperty(string $property_name, &$property_value) : void
+    {
+        $this->properties[$property_name] = &$property_value;
+    }
+
+    /**
+     * Add multiple properties
+     *
+     * @param array $properties
+     */
+    public function addProperties(array &$properties) : void
+    {
+        foreach ($properties as $property_name => &$property_value) {
+            $this->addProperty($property_name, $property_value);
+        }
+    }
+
+    /**
+     * Get element params
+     *
+     * @return array
+     */
+    public function getProperties(): array
+    {
+        return $this->properties;
     }
 
     /**

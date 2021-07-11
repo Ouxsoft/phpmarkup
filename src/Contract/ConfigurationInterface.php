@@ -59,6 +59,22 @@ interface ConfigurationInterface
     public function getElements(): array;
 
     /**
+     * @param string $property_key
+     * @param $property_value
+     */
+    public function addProperty(string $property_key, &$property_value): void;
+
+    /**
+     * @param array $properties
+     */
+    public function addProperties(array &$properties) : void;
+
+    /**
+     * @return array
+     */
+    public function getProperties(): array;
+
+    /**
      * @param array $routine
      */
     public function addRoutine(array $routine): void;

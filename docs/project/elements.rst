@@ -11,6 +11,13 @@ Args
 During the Element's construction, the ``Engine`` sends arguments that were found
 in both the DOMElement's attributes and child ``arg`` DOMElements.
 
+Properties
+-------------------
+During the Element's construction, the ``Engine`` sends properties that set in the config
+to become properties of the Element.
+
+This allows Elements to be use objects like a database, templating engine, etc.
+
 Element Development
 -------------------
 

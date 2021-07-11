@@ -10,11 +10,11 @@
     "lhtml"
   ],
   "type": "library",
-  "homepage": "https://github.com/ouxsoft/PHPMarkup",
+  "homepage": "https://github.com/Ouxsoft/phpmarkup",
   "support": {
     "docs": "https://phpmarkup.readthedocs.io",
-    "source": "https://github.com/ouxsoft/PHPMarkup",
-    "issues": "https://github.com/ouxsoft/PHPMarkup/issues"
+    "source": "https://github.com/Ouxsoft/phpmarkup",
+    "issues": "https://github.com/Ouxsoft/phpmarkup/issues"
   },
   "require": {
     "php": "^7.3 || ~8.0.0",

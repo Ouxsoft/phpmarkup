@@ -11,6 +11,8 @@ AbstractElement
 
     :param ArgumentArray $args:
       Default: ``null``
+    :param array & $dynamic_properties:
+      Default: ``[]``
 
   .. php:method:: public __invoke (string $method) -> bool
 

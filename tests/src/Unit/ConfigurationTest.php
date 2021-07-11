@@ -126,7 +126,7 @@ class ConfigurationTest extends TestCase
                 'xpath' => 'helloworld'
             ]
         ]);
-        $this->assertCount(2, $this->config->elements);
+        $this->assertCount(2, $this->config->getElements());
     }
 
     /**

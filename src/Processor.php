@@ -135,6 +135,29 @@ class Processor
     }
 
     /**
+     * Add a Property.
+     * Properties are passed by reference to all Elements during initialization and become a property of that element
+     * e.g. new Element($args, $properties)
+     *
+     * @param string $property_name
+     * @param $property_value
+     */
+    public function addProperty(string $property_name, $property_value): void
+    {
+        $this->config->addProperty($property_name, $property_value);
+    }
+
+    /**
+     * Add multiple Properties at once
+     *
+     * @param array $properties
+     */
+    public function addProperties(array $properties) : void
+    {
+        $this->config->addProperties($properties);
+    }
+
+    /**
      * Add definition for processor LHTML routine
      *
      * @param array $routine

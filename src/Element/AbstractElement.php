@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Ouxsoft\PHPMarkup\Element;
 
 use Ouxsoft\PHPMarkup\ArgumentArray;
+use Ouxsoft\PHPMarkup\Exception\Exception;
 
 /**
  * Class Element
@@ -72,19 +73,23 @@ abstract class AbstractElement
     /**
      * Element constructor
      *
-     * @param $args
+     * @param ArgumentArray|null $args
+     * @param array $dynamic_properties additional class properties
      */
-    final public function __construct(ArgumentArray $args = null)
+    final public function __construct(ArgumentArray $args = null, array &$dynamic_properties = [])
     {
         // set object id
         $this->element_id = spl_object_hash($this);
 
-        // store args passed
-        if ($args === null) {
-            $args = new ArgumentArray();
-        }
+        $this->args = ($args === null) ? new ArgumentArray() : $args;
 
-        $this->args = $args;
+        // dynamic properties, used by application e.g. templating engine, database, etc.
+        foreach($dynamic_properties as $property_name => &$property_value){
+            if(property_exists($this, $property_name)){
+                throw Exception('Property already exists.');
+            }
+            $this->$property_name &= $property_value;
+        }
     }
 
     /**

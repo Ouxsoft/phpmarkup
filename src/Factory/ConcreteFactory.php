@@ -56,7 +56,8 @@ class ConcreteFactory implements AbstractFactoryInterface
     {
         return new Engine(
             $container['document'],
-            $container['element_pool']
+            $container['element_pool'],
+            $container['config']
         );
     }
 

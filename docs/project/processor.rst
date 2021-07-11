@@ -151,3 +151,23 @@ Outputs:
             This is a success alert
         </div>
     </html>
+
+
+Properties Example
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Shows a ``Processor`` with ``Property`` added. Properties are set within all Elements.
+
+Properties can be used for centralizing Javascript and CSS one off includes, Doctrine Entity Management,
+Database connections, Templating Engine, etc.
+
+.. code:: php
+
+    <?php
+    use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
+
+    $entityManager = new Doctrine();
+
+    $processor = ProcessorFactory::getInstance();
+
+    $processor->addProperty('em', $entityManager);

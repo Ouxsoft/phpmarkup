@@ -48,26 +48,26 @@ class Engine implements EngineInterface
     public $element_pool;
 
     /**
-     * @var array[] registered includes added during output
+     * @var array contains additional Element construction parameters that are loaded as properties
      */
-    public $includes = [
-        'js' => [],
-        'css' => []
-    ];
+    private $element_properties = [];
 
     /**
-     * Engine constructor.
-     *
+     * EngineInterface constructor.
      * @param DocumentInterface $document
      * @param ElementPoolInterface $element_pool
+     * @param Configuration $config
      */
     public function __construct(
         DocumentInterface &$document,
-        ElementPoolInterface &$element_pool
-    ) {
+        ElementPoolInterface &$element_pool,
+        Configuration &$config
+    ){
         $this->dom = &$document;
 
         $this->element_pool = &$element_pool;
+
+        $this->element_properties = $config->getProperties();
     }
 
     /**
@@ -202,7 +202,6 @@ class Engine implements EngineInterface
 
         $this->replaceDomElement($dom_element, $new_xml);
 
-
         return true;
     }
 
@@ -323,10 +322,10 @@ class Engine implements EngineInterface
         }
 
         // get args from element and remove child arg
-        $args = $this->getElementArgs($element);
+        $element_args = $this->getElementArgs($element);
 
         // instantiate element
-        $element_object = new $class_name($args);
+        $element_object = new $class_name($element_args, $this->element_properties);
 
         // set element object placeholder
         $element->setAttribute(self::INDEX_ATTRIBUTE, $element_object->element_id);
