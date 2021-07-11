@@ -14,25 +14,32 @@
 </p>
 
 ## About
-PHPMarkup is a markup processor based on the [LHTML](https://github.com/Ouxsoft/LHTML) standard written in PHP. 
+PHPMarkup is a lightweight markup processor standard written in PHP. 
 It facilitates the extraction of markup into a data structure, orchestrated manipulation of said structure, and output as 
-(optimized) markup. 
+(optimized) markup and uses the [LHTML](https://github.com/Ouxsoft/LHTML) standard. 
 
 ### Instructions
 Create a PHPMarkup Element to instruct DOMElement processing.
 ```php
 /**
- * Class SayHello
- * DomElement process class
+ * Class MessagesElement
  */
-class SayHello extends Ouxsoft\PHPMarkup\Element
+class MessagesElement extends Ouxsoft\PHPMarkup\Element
 {
-    /**
-     * @return string
-     */
+    private $messages;
+
+    public function onLoad() : void
+    {
+        $this->messages = $this->db->query('SELECT `msg` FROM `messages`;');
+    }
+
     public function onRender(): string
     {
-        return 'Hello, ' . $this->getArgByName('who') . $this->innerText();
+        $out = '';
+        foreach($this->messages as $row){
+            $out .= $row['msg'] . $this->getArgByName('delimiter');
+        }
+        return $out;
     }
 }
 ```
@@ -42,18 +49,17 @@ Process a DOM using the class created.
 ```php
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 
-// Instantiate Processor and configure to parse output buffer
 $processor = ProcessorFactory::getInstance();
-$processor->addElement(['xpath' => '//greetings', 'class_name' => 'SayHello']);
+$processor->addElement(['xpath' => '//messages', 'class_name' => 'MessagesElement']);
+$processor->addRoutine(['method' => 'onLoad']);
 $processor->addRoutine(['method' => 'onRender', 'execute' => 'RETURN_CALL']);
+$processor->addProperty('db', new PDO('sqlite:/example.db'));
 $processor->parseBuffer();
-
-// Displays "Hello, World!" when rendered by Browser
 ?>
 <html lang="en">
-    <greetings>
-        <arg name="who">World</arg>!
-    </greetings>
+    <messages>
+        <arg name="delimiter">;</arg>
+    </messages>
 </html>
 ```
 
