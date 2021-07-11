@@ -15,6 +15,7 @@ namespace Ouxsoft\PHPMarkup;
 use DOMElement;
 use DOMNodeList;
 use DOMXPath;
+use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
 use Ouxsoft\PHPMarkup\Contract\DocumentInterface;
 use Ouxsoft\PHPMarkup\Contract\ElementPoolInterface;
 use Ouxsoft\PHPMarkup\Contract\EngineInterface;
@@ -48,9 +49,10 @@ class Engine implements EngineInterface
     public $element_pool;
 
     /**
-     * @var array contains additional Element construction parameters that are loaded as properties
+     * @var ConfigurationInterface
+     * contains array with dditional Element construction parameters that are loaded as properties
      */
-    private $element_properties = [];
+    private $config;
 
     /**
      * EngineInterface constructor.
@@ -61,13 +63,13 @@ class Engine implements EngineInterface
     public function __construct(
         DocumentInterface &$document,
         ElementPoolInterface &$element_pool,
-        Configuration &$config
+        ConfigurationInterface &$config
     ){
         $this->dom = &$document;
 
         $this->element_pool = &$element_pool;
 
-        $this->element_properties = $config->getProperties();
+        $this->config = &$config;
     }
 
     /**
@@ -325,7 +327,7 @@ class Engine implements EngineInterface
         $element_args = $this->getElementArgs($element);
 
         // instantiate element
-        $element_object = new $class_name($element_args, $this->element_properties);
+        $element_object = new $class_name($element_args, $this->config->properties);
 
         // set element object placeholder
         $element->setAttribute(self::INDEX_ATTRIBUTE, $element_object->element_id);

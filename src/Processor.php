@@ -142,7 +142,7 @@ class Processor
      * @param string $property_name
      * @param $property_value
      */
-    public function addProperty(string $property_name, $property_value): void
+    public function addProperty(string $property_name, &$property_value): void
     {
         $this->config->addProperty($property_name, $property_value);
     }
@@ -152,7 +152,7 @@ class Processor
      *
      * @param array $properties
      */
-    public function addProperties(array $properties) : void
+    public function addProperties(array &$properties) : void
     {
         $this->config->addProperties($properties);
     }

@@ -51,7 +51,7 @@ class Configuration implements ConfigurationInterface
     /**
      * @var array references to external elemental properties that are set as references
      */
-    protected $properties = [];
+    public $properties = [];
 
     /**
      * @var array methods that are automatically invoked within all elements that feature method

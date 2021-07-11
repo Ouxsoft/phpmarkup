@@ -56,11 +56,6 @@ abstract class AbstractElement
     public $search_index = true;
 
     /**
-     * @var string maximum results of data pulled
-     */
-    public $max_results = '240';
-
-    /**
      * @var array ancestor public variable updated live
      */
     public $ancestors = [];
@@ -88,7 +83,7 @@ abstract class AbstractElement
             if(property_exists($this, $property_name)){
                 throw Exception('Property already exists.');
             }
-            $this->$property_name &= $property_value;
+            $this->$property_name = &$property_value;
         }
     }
 
