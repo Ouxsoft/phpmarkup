@@ -13,6 +13,7 @@ namespace Ouxsoft\PHPMarkup\Contract;
 use Ouxsoft\PHPMarkup\ArgumentArray;
 use DOMElement;
 use DOMNodeList;
+use Ouxsoft\PHPMarkup\Configuration;
 
 /**
  * Interface EngineInterface
@@ -24,10 +25,12 @@ interface EngineInterface
      * EngineInterface constructor.
      * @param DocumentInterface $document
      * @param ElementPoolInterface $element_pool
+     * @param Configuration $config
      */
     public function __construct(
         DocumentInterface &$document,
-        ElementPoolInterface &$element_pool
+        ElementPoolInterface &$element_pool,
+        Configuration &$config
     );
 
     /**
