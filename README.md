@@ -16,7 +16,7 @@
 ## About
 PHPMarkup is a lightweight markup processor written in PHP. 
 It facilitates the extraction of markup into a data structure, orchestrated manipulation of said structure, and output as 
-(optimized) markup and uses the [LHTML](https://github.com/Ouxsoft/LHTML) standard. 
+(optimized) markup. It is based on the [LHTML](https://github.com/Ouxsoft/LHTML) standard. 
 
 ### Instructions
 Create a PHPMarkup Element to instruct DOMElement processing.
