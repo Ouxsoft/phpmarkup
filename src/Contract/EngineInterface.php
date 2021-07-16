@@ -25,12 +25,12 @@ interface EngineInterface
      * EngineInterface constructor.
      * @param DocumentInterface $document
      * @param ElementPoolInterface $element_pool
-     * @param Configuration $config
+     * @param ConfigurationInterface $config
      */
     public function __construct(
         DocumentInterface &$document,
         ElementPoolInterface &$element_pool,
-        Configuration &$config
+        ConfigurationInterface &$config
     );
 
     /**
