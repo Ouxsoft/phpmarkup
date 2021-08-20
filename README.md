@@ -21,10 +21,14 @@ It facilitates the extraction of markup into a data structure, orchestrated mani
 ### Instructions
 Create a PHPMarkup Element to instruct DOMElement processing.
 ```php
+<?php
+
+namespace App\Elements;
+
 /**
- * Class MessagesElement
+ * Class Messages
  */
-class MessagesElement extends Ouxsoft\PHPMarkup\Element
+class Messages extends Ouxsoft\PHPMarkup\Element
 {
     private $messages;
 
@@ -42,15 +46,19 @@ class MessagesElement extends Ouxsoft\PHPMarkup\Element
         return $out;
     }
 }
+
 ```
 
 Process a DOM using the class created.
 
 ```php
+<?php
+
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
+use App\Elements\Messages;
 
 $processor = ProcessorFactory::getInstance();
-$processor->addElement(['xpath' => '//messages', 'class_name' => 'MessagesElement']);
+$processor->addElement(['xpath' => '//messages', 'class_name' => App\Elements\Messages::class]);
 $processor->addRoutine(['method' => 'onLoad']);
 $processor->addRoutine(['method' => 'onRender', 'execute' => 'RETURN_CALL']);
 $processor->addProperty('db', new PDO('sqlite:/example.db'));
@@ -61,6 +69,7 @@ $processor->parseBuffer();
         <arg name="delimiter">;</arg>
     </messages>
 </html>
+
 ```
 
 ## Installation
