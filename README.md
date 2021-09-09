@@ -1,29 +1,25 @@
-<p align="center"><img src="https://github.com/Ouxsoft/phpmarkup/raw/master/docs/logo.jpg" width="350"></p>
+# ![PHPMarkup](https://github.com/Ouxsoft/phpmarkup/raw/master/docs/logo.jpg)
 
-<p align="center">
-    <a href="https://travis-ci.com/github/Ouxsoft/phpmarkup"><img src="https://api.travis-ci.com/Ouxsoft/phpmarkup.svg?branch=master&status=passed" alt="Build Status"></a>
-    <a href="https://www.codacy.com/gh/Ouxsoft/phpmarkup/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ouxsoft/phpmarkup&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/68c52ad139cb4f7fbb5e78c2eace6800"/></a>
-    <a href="https://codecov.io/gh/Ouxsoft/phpmarkup"> <img alt="Codecov" src="https://img.shields.io/codecov/c/github/Ouxsoft/phpmarkup"> </a> 
-    <a href="https://phpmarkup.readthedocs.io/en/latest/?badge=latest"><img src="https://readthedocs.org/projects/phpmarkup/badge/?version=latest" alt="Documentation Status"></a> 
-</p>
+[![Build Status](https://api.travis-ci.com/Ouxsoft/phpmarkup.svg?branch=master&status=passed)](https://travis-ci.com/github/Ouxsoft/phpmarkup)
+[![Code Quality](https://app.codacy.com/project/badge/Grade/68c52ad139cb4f7fbb5e78c2eace6800)](https://www.codacy.com/gh/Ouxsoft/phpmarkup/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ouxsoft/phpmarkup&amp;utm_campaign=Badge_Grade)
+[![Code Coverage](https://img.shields.io/codecov/c/github/Ouxsoft/phpmarkup)](https://codecov.io/gh/Ouxsoft/phpmarkup)
+[![Docs Status](https://readthedocs.org/projects/phpmarkup/badge/?version=latest&style=flat)](https://readthedocs.org/projects/phpmarkup)
 
-<p align="center">
-    <a href="https://packagist.org/packages/Ouxsoft/phpmarkup"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Ouxsoft/phpmarkup"></a> 
-    <a href="#tada-php-support" title="PHP Versions Supported"><img alt="PHP Versions Supported" src="https://img.shields.io/badge/php-7.3%20to%208.0-777bb3.svg?logo=php&logoColor=white&labelColor=555555"></a>  
-    <a href="https://github.com/Ouxsoft/phpmarkup/blob/master/LICENSE" title="license"><img alt="LICENSE" src="https://img.shields.io/badge/license-MIT-428f7e.svg?logo=open%20source%20initiative&logoColor=white&labelColor=555555"></a>
-</p>
+[![Latest Stable Version](https://img.shields.io/packagist/v/Ouxsoft/phpmarkup.svg)](https://packagist.org/packages/Ouxsoft/phpmarkup)
+[![PHP Versions Supported](https://img.shields.io/badge/php-7.3%20to%208.0-777bb3.svg?logo=php&logoColor=white&labelColor=555555)](https://api.travis-ci.com/Ouxsoft/phpmarkup.svg?branch=master&status=passed)
+[![License](https://img.shields.io/badge/license-MIT-428f7e.svg?logo=open%20source%20initiative&logoColor=white&labelColor=555555)](https://github.com/Ouxsoft/phpmarkup/blob/master/LICENSE)
+[![Total Downloads](https://img.shields.io/packagist/dt/Ouxsoft/phpmarkup.svg)](https://packagist.org/packages/Ouxsoft/phpmarkup)
 
-## About
-PHPMarkup is a lightweight markup processor written in PHP. 
-It facilitates the extraction of markup into a data structure, orchestrated manipulation of said structure, and output as 
-(optimized) markup. It is based on the [LHTML](https://github.com/Ouxsoft/LHTML) standard. 
+## Installation
 
-### Instructions
-Create a PHPMarkup Element to instruct DOMElement processing.
+Install the latest version:
+```shell script
+$ composer require ouxsoft/phpmarkup
+```
+
+## Basic Usage
+Create an Element class with DOMElement processing instructions.
 ```php
-/**
- * Class MessagesElement
- */
 class MessagesElement extends Ouxsoft\PHPMarkup\Element
 {
     private $messages;
@@ -44,8 +40,7 @@ class MessagesElement extends Ouxsoft\PHPMarkup\Element
 }
 ```
 
-Process a DOM using the class created.
-
+Configure a Processor to process a DOM using the Element class created.
 ```php
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 
@@ -63,32 +58,31 @@ $processor->parseBuffer();
 </html>
 ```
 
-## Installation
+## About
+PHPMarkup is a lightweight markup processor written in PHP. 
+It facilitates the extraction of markup into a data structure, orchestrated manipulation of said structure, and output as 
+(optimized) markup. It is based on the [LHTML](https://github.com/Ouxsoft/LHTML) standard. 
 
-### Via Composer
-PHPMarkup is available on [Packagist](https://packagist.org/packages/Ouxsoft/livingMarkup).
+### Documentation
+*  [Processor](https://phpmarkup.readthedocs.io/en/latest/project/processor.html)
+*  [Routines](https://phpmarkup.readthedocs.io/en/latest/project/routines.html)
+*  [Elements](https://phpmarkup.readthedocs.io/en/latest/project/elements.html)
+*  [Configuration](https://phpmarkup.readthedocs.io/en/latest/project/configuration.html)
+*  [API](https://phpmarkup.readthedocs.io/en/latest/api.html)
 
-Install with [Composer](https://getcomposer.org/download/):
-```shell script
-composer require ouxsoft/phpmarkup
-```
+### Author
+Matthew Heroux<br />
+See also the [list of contributors](https://github.com/Ouxsoft/phpmarkup/graphs/contributors) who participated in this project.
 
-### Via Git
-Install with [Git](https://git-scm.com/):
-```shell script
-git clone git@github.com:Ouxsoft/phpmarkup.git
-```
-
-## Documentation
-Read the docs [phpmarkup.readthedocs.io](https://phpmarkup.readthedocs.io).
-
-## Contributing
+### Contributing
 PHPMarkup is an open source project. If you find a problem or want to discuss new features or improvements
 **please** create an issue, and/or if possible create a pull request. Contributing is easy with [phpmarkup-stack](https://github.com/Ouxsoft/phpmarkup-stack) 
 a docker based development environment with test suite.
 
-## Acknowledgement
-Thanks to Matthew Heroux for leading the development of PHPMarkup. 
+### License
+PHPMarkup is licensed under the MIT License - see the [LICENSE](https://github.com/Ouxsoft/phpmarkup/LICENSE) file for details.
+
+### Acknowledgement
 Thanks to Andy Beak for providing code reviews. 
 Thanks to Bob Crowley for providing Project Management advising. 
 Thanks to Aswin Vijayakumar for their useful comments. 
