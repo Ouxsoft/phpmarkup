@@ -20,7 +20,11 @@ $ composer require ouxsoft/phpmarkup
 ## Basic Usage
 Create an Element class with DOMElement processing instructions.
 ```php
-class MessagesElement extends Ouxsoft\PHPMarkup\Element
+<?php
+
+namespace App\Elements;
+
+class Messages extends Ouxsoft\PHPMarkup\Element
 {
     private $messages;
 
@@ -42,10 +46,13 @@ class MessagesElement extends Ouxsoft\PHPMarkup\Element
 
 Configure a Processor to process a DOM using the Element class created.
 ```php
+<?php
+
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
+use App\Elements\Messages;
 
 $processor = ProcessorFactory::getInstance();
-$processor->addElement(['xpath' => '//messages', 'class_name' => 'MessagesElement']);
+$processor->addElement(['xpath' => '//messages', 'class_name' => App\Elements\Messages::class]);
 $processor->addRoutine(['method' => 'onLoad']);
 $processor->addRoutine(['method' => 'onRender', 'execute' => 'RETURN_CALL']);
 $processor->addProperty('db', new PDO('sqlite:/example.db'));
@@ -56,6 +63,7 @@ $processor->parseBuffer();
         <arg name="delimiter">;</arg>
     </messages>
 </html>
+
 ```
 
 ## About
