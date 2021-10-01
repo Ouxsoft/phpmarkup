@@ -1,6 +1,6 @@
 # PHPMarkup
 
-[![Build Status](https://api.travis-ci.com/Ouxsoft/phpmarkup.svg?branch=master&status=passed)](https://travis-ci.com/github/Ouxsoft/phpmarkup)
+[![CI](https://github.com/Ouxsoft/phpmarkup/actions/workflows/ci.yml/badge.svg)](https://github.com/Ouxsoft/phpmarkup/actions/workflows/ci.yml)
 [![Code Quality](https://app.codacy.com/project/badge/Grade/68c52ad139cb4f7fbb5e78c2eace6800)](https://www.codacy.com/gh/Ouxsoft/phpmarkup/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ouxsoft/phpmarkup&amp;utm_campaign=Badge_Grade)
 [![Code Coverage](https://img.shields.io/codecov/c/github/Ouxsoft/phpmarkup)](https://codecov.io/gh/Ouxsoft/phpmarkup)
 [![Docs Status](https://readthedocs.org/projects/phpmarkup/badge/?version=latest&style=flat)](https://readthedocs.org/projects/phpmarkup)
