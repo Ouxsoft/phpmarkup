@@ -16,8 +16,7 @@ use RuntimeException;
 
 /**
  * Class Exception
- *
- * @package Ouxsoft\PHPMarkup
+ * @package Ouxsoft\PHPMarkup\Exception
  */
 class Exception extends RuntimeException
 {
@@ -26,9 +25,9 @@ class Exception extends RuntimeException
     /**
      * Exception constructor.
      *
-     * @param $log
+     * @param string|null $log
      */
-    public function __construct($log = null)
+    public function __construct(string $log = null)
     {
         parent::__construct();
 
