@@ -33,7 +33,7 @@ use Ouxsoft\PHPMarkup\Exception\ParserException;
 class Engine implements EngineInterface
 {
     // TODO: implement PHPMarkup const
-    const RETURN_CALL = 1;
+    public const RETURN_CALL = 1;
 
     /**
      * marker attribute used by Engine to identify DOMElement during processing
@@ -397,7 +397,7 @@ class Engine implements EngineInterface
      * @param string $element_id
      * @return ArgumentArray
      */
-    public function getArgsByElementId(string $element_id) : ArgumentArray
+    public function getArgsByElementId(string $element_id): ArgumentArray
     {
         $element = $this->getDomElementByPlaceholderId($element_id);
         $element_args = $this->getElementArgs($element);

@@ -68,7 +68,7 @@ interface ConfigurationInterface
     /**
      * @param array $properties
      */
-    public function addProperties(array &$properties) : void;
+    public function addProperties(array &$properties): void;
 
     /**
      * @return array

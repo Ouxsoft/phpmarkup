@@ -152,7 +152,7 @@ class Processor
      *
      * @param array $properties
      */
-    public function addProperties(array &$properties) : void
+    public function addProperties(array &$properties): void
     {
         $this->config->addProperties($properties);
     }

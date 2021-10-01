@@ -226,7 +226,7 @@ class Configuration implements ConfigurationInterface
      * @param string $property_name
      * @param mixed $property_value
      */
-    public function addProperty(string $property_name, &$property_value) : void
+    public function addProperty(string $property_name, &$property_value): void
     {
         $this->properties[$property_name] = &$property_value;
     }
@@ -236,7 +236,7 @@ class Configuration implements ConfigurationInterface
      *
      * @param array $properties
      */
-    public function addProperties(array &$properties) : void
+    public function addProperties(array &$properties): void
     {
         foreach ($properties as $property_name => &$property_value) {
             $this->addProperty($property_name, $property_value);

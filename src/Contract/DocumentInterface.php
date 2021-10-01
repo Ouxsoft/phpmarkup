@@ -10,7 +10,6 @@
 
 namespace Ouxsoft\PHPMarkup\Contract;
 
-
 /**
  * Interface DocumentInterface
  * @package Ouxsoft\PHPMarkup\Contract

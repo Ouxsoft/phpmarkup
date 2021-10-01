@@ -104,7 +104,7 @@ interface EngineInterface
      * @param string $element_id
      * @return ArgumentArray
      */
-    public function getArgsByElementId(string $element_id) : ArgumentArray;
+    public function getArgsByElementId(string $element_id): ArgumentArray;
 
     /**
      * @param string|null $value
