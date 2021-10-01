@@ -12,14 +12,16 @@ declare(strict_types=1);
 
 namespace Ouxsoft\PHPMarkup;
 
+use DOMDocument;
 use DOMElement;
 use DOMNodeList;
 use DOMXPath;
 use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
 use Ouxsoft\PHPMarkup\Contract\DocumentInterface;
 use Ouxsoft\PHPMarkup\Contract\ElementPoolInterface;
+use Ouxsoft\PHPMarkup\Element\ElementPool;
 use Ouxsoft\PHPMarkup\Contract\EngineInterface;
-use Ouxsoft\PHPMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Exception\ParserException;
 
 /**
  * Class Engine
@@ -31,7 +33,7 @@ use Ouxsoft\PHPMarkup\Exception\Exception;
 class Engine implements EngineInterface
 {
     // TODO: implement PHPMarkup const
-    public const RETURN_CALL = 1;
+    const RETURN_CALL = 1;
 
     /**
      * marker attribute used by Engine to identify DOMElement during processing
@@ -39,18 +41,18 @@ class Engine implements EngineInterface
     public const INDEX_ATTRIBUTE = '_ELEMENT_ID';
 
     /**
-     * @var DOM
+     * @var DocumentInterface|Document|DOMDocument DOM
      */
     public $dom;
 
     /**
-     * @var ElementPool
+     * @var ElementPoolInterface|ElementPool
      */
     public $element_pool;
 
     /**
-     * @var ConfigurationInterface
-     * contains array with dditional Element construction parameters that are loaded as properties
+     * @var ConfigurationInterface|Configuration
+     * contains array with additional Element construction parameters that are loaded as properties
      */
     private $config;
 
@@ -58,13 +60,13 @@ class Engine implements EngineInterface
      * EngineInterface constructor.
      * @param DocumentInterface $document
      * @param ElementPoolInterface $element_pool
-     * @param Configuration $config
+     * @param ConfigurationInterface $config
      */
     public function __construct(
         DocumentInterface &$document,
         ElementPoolInterface &$element_pool,
         ConfigurationInterface &$config
-    ){
+    ) {
         $this->dom = &$document;
 
         $this->element_pool = &$element_pool;
@@ -98,7 +100,7 @@ class Engine implements EngineInterface
                 }
                 break;
             default:
-                throw new Exception('Invalid element execute command provided.');
+                throw new ParserException('Invalid element execute command provided.');
         }
 
         return true;
@@ -107,7 +109,7 @@ class Engine implements EngineInterface
     /**
      * Get a Element ancestors' properties based on provided element_id DOMElement's ancestors
      *
-     * @param $element_id
+     * @param string $element_id
      * @return array
      */
     public function getElementAncestorProperties(string $element_id): array
@@ -150,9 +152,9 @@ class Engine implements EngineInterface
      *
      * @param string $query
      * @param DOMElement|null $node
-     * @return mixed
+     * @return DOMElement|null
      */
-    public function queryFetch(string $query, DOMElement $node = null): ?DOMElement
+    public function queryFetch(string $query, ?DOMElement $node = null): ?DOMElement
     {
         $xpath = new DOMXPath($this->dom);
 
@@ -170,9 +172,9 @@ class Engine implements EngineInterface
      *
      * @param string $query
      * @param DOMElement|null $node
-     * @return mixed
+     * @return DOMNodeList|null
      */
-    public function queryFetchAll(string $query, DOMElement $node = null): ?DOMNodeList
+    public function queryFetchAll(string $query, ?DOMElement $node = null): ?DOMNodeList
     {
         $xpath = new DOMXPath($this->dom);
 
@@ -182,7 +184,7 @@ class Engine implements EngineInterface
     /**
      * Within DOMDocument replace DOMElement with Element->__toString() output
      *
-     * @param $element_id
+     * @param string $element_id
      * @return bool
      */
     public function renderElement(string $element_id): bool
@@ -210,7 +212,7 @@ class Engine implements EngineInterface
     /**
      * Get Element inner XML
      *
-     * @param $element_id
+     * @param string $element_id
      * @return string
      */
     public function getElementInnerXML(string $element_id): string
@@ -323,11 +325,8 @@ class Engine implements EngineInterface
             return false;
         }
 
-        // get args from element and remove child arg
-        $element_args = $this->getElementArgs($element);
-
         // instantiate element
-        $element_object = new $class_name($element_args, $this->config->properties);
+        $element_object = new $class_name($this, $this->config->properties);
 
         // set element object placeholder
         $element->setAttribute(self::INDEX_ATTRIBUTE, $element_object->element_id);
@@ -385,20 +384,37 @@ class Engine implements EngineInterface
             $args[$name] = $value;
 
             // remove element
-            $child_node->parentNode->removeChild($child_node);
+            // when do args get removed?
+            // $child_node->parentNode->removeChild($child_node);
         }
 
         return $args;
     }
 
     /**
+     * Get an elements child args by unique element id
+     *
+     * @param string $element_id
+     * @return ArgumentArray
+     */
+    public function getArgsByElementId(string $element_id) : ArgumentArray
+    {
+        $element = $this->getDomElementByPlaceholderId($element_id);
+        $element_args = $this->getElementArgs($element);
+        if ($element_args == null) {
+            return new ArgumentArray();
+        }
+        return $element_args;
+    }
+
+    /**
      * Set a value type to avoid Type Juggling issues and extend data types
      *
-     * @param null $value
+     * @param string|null $value
      * @param string $type
      * @return bool|mixed|string|null
      */
-    public function setType($value = null, $type = 'string')
+    public function setType(string $value = null, $type = 'string')
     {
         $type = strtolower($type);
 

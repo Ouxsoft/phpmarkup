@@ -13,6 +13,7 @@ namespace Ouxsoft\PHPMarkup\Contract;
 /**
  * Interface ConfigurationInterface
  * @package Ouxsoft\PHPMarkup\Contract
+ * @property string $properties
  */
 interface ConfigurationInterface
 {
@@ -60,7 +61,7 @@ interface ConfigurationInterface
 
     /**
      * @param string $property_key
-     * @param $property_value
+     * @param mixed $property_value
      */
     public function addProperty(string $property_key, &$property_value): void;
 

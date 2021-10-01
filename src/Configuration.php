@@ -17,7 +17,7 @@ use Laminas\Config\Reader\Json;
 use Laminas\Validator\File\Exists;
 use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
 use Ouxsoft\PHPMarkup\Contract\DocumentInterface;
-use Ouxsoft\PHPMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Exception\ParserException;
 use Throwable;
 
 /**
@@ -29,7 +29,7 @@ use Throwable;
  */
 class Configuration implements ConfigurationInterface
 {
-    public const VERSION = 3;
+    public const VERSION = "3";
     public const LOCAL_FILENAME = 'config.json';
     public const DIST_FILENAME = 'config.dist.json';
 
@@ -118,7 +118,7 @@ class Configuration implements ConfigurationInterface
                 }
             } catch (Throwable $e) {
                 // do nothing
-                throw new Exception('Invalid config file provided');
+                throw new ParserException('Invalid config file provided');
             }
         }
     }
@@ -148,7 +148,7 @@ class Configuration implements ConfigurationInterface
             switch ($key) {
                 case 'version':
                     if ($value != self::VERSION) {
-                        throw new Exception('Unsupported config version');
+                        throw new ParserException('Unsupported config version');
                     }
                     break;
                 case 'elements':
@@ -161,7 +161,7 @@ class Configuration implements ConfigurationInterface
                     $this->addRoutines($value);
                     break;
                 case 'markup':
-                    $this->setMarkup();
+                    $this->setMarkup('');
                     break;
             }
         }
@@ -186,11 +186,11 @@ class Configuration implements ConfigurationInterface
     public function addElement(array $element): void
     {
         if (!array_key_exists('xpath', $element)) {
-            throw new Exception('Xpath required for addElements');
+            throw new ParserException('Xpath required for addElements');
         }
 
         if (!array_key_exists('class_name', $element)) {
-            throw new Exception('class_name required for addElements');
+            throw new ParserException('class_name required for addElements');
         }
 
         if (!in_array($element, $this->elements)) {
@@ -223,8 +223,8 @@ class Configuration implements ConfigurationInterface
     /**
      * Add an property that will be passed to and become an property of all initialized elements
      *
-     * @param $property_name
-     * @param $property_value
+     * @param string $property_name
+     * @param mixed $property_value
      */
     public function addProperty(string $property_name, &$property_value) : void
     {
@@ -261,7 +261,7 @@ class Configuration implements ConfigurationInterface
     public function addRoutine(array $routine): void
     {
         if (!array_key_exists('method', $routine)) {
-            throw new Exception('Method required for addRoutines');
+            throw new ParserException('Method required for addRoutines');
         }
 
         if (!in_array($routine, $this->routines)) {

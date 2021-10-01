@@ -66,7 +66,7 @@ class Processor
     /**
      * Load config
      *
-     * @param $filepath
+     * @param string $filepath
      */
     public function loadConfig(string $filepath): void
     {
@@ -76,9 +76,9 @@ class Processor
     /**
      * Get config
      *
-     * @return Configuration
+     * @return ConfigurationInterface
      */
-    public function getConfig(): Configuration
+    public function getConfig(): ConfigurationInterface
     {
         return $this->config;
     }
@@ -140,7 +140,7 @@ class Processor
      * e.g. new Element($args, $properties)
      *
      * @param string $property_name
-     * @param $property_value
+     * @param mixed $property_value
      */
     public function addProperty(string $property_name, &$property_value): void
     {
@@ -201,7 +201,7 @@ class Processor
     /**
      * Process a file
      *
-     * @param $filepath
+     * @param string $filepath
      * @return string
      */
     public function parseFile(string $filepath): string

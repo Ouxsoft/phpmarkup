@@ -84,9 +84,7 @@ FROM build AS standard
 
 COPY . /application
 
-RUN dos2unix /application/bin/luckbydice \
- && chmod +x /application/bin/luckbydice \
- && composer install --no-dev --no-interaction
+RUN composer install --no-dev --no-interaction
 
 #######################################
 # Sphinx (Build documentation)
@@ -128,6 +126,6 @@ COPY src /app/src
 WORKDIR "/app/docs"
 
 RUN doxygen Doxyfile \
- && doxyphp2sphinx Ouxsoft::LuckByDice
+ && doxyphp2sphinx Ouxsoft::PHPMarkup
 
 SHELL ["/bin/bash", "-c"]

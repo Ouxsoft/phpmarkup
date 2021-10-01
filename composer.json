@@ -26,8 +26,10 @@
     "pimple/pimple": "v3.3.1"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^v2.18.6",
-    "phpunit/phpunit": "^9"
+    "friendsofphp/php-cs-fixer": "^v3.1.0",
+    "phpunit/phpunit": "^9",
+    "phpbench/phpbench": "^1.1",
+    "phpstan/phpstan": "^0.12.99"
   },
   "autoload": {
     "psr-4": {
@@ -40,16 +42,22 @@
     }
   },
   "scripts": {
-    "build": [
-      "php-cs-fixer fix --rules=@PSR12 --using-cache=no src/",
-      "php-cs-fixer fix --rules=@PSR12 --using-cache=no tests/"
-    ],
     "test": [
-      "XDEBUG_MODE=coverage phpunit"
+      "XDEBUG_MODE=coverage ./vendor/bin/phpunit"
     ],
-    "fix-code": [
-      "php-cs-fixer fix --rules=@PSR12 --using-cache=no src/",
-      "php-cs-fixer fix --rules=@PSR12 --using-cache=no tests/"
+    "benchmark" : [
+      "./vendor/bin/phpbench run tests/src/Benchmark --report=env --progress=dots"
+    ],
+    "analyze" : [
+      "./vendor/bin/phpstan analyse -c phpstan.neon"
+    ],
+    "fix-code-standards": [
+      "php-cs-fixer fix --using-cache=no src/",
+      "php-cs-fixer fix --using-cache=no tests/"
+    ],
+    "check-code-standards": [
+      "php-cs-fixer fix --dry-run --diff --verbose --using-cache=no src/ ",
+      "php-cs-fixer fix --dry-run --diff --verbose --using-cache=no tests/"
     ]
   }
 }

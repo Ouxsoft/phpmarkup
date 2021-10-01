@@ -10,6 +10,7 @@
 
 namespace Ouxsoft\PHPMarkup\Contract;
 
+
 /**
  * Interface DocumentInterface
  * @package Ouxsoft\PHPMarkup\Contract
@@ -26,4 +27,14 @@ interface DocumentInterface
      * @return bool
      */
     public function loadSource(string $source): bool;
+
+    /**
+     * @return mixed
+     */
+    public function saveHTML();
+
+    /**
+     * @return mixed
+     */
+    public function createDocumentFragment();
 }

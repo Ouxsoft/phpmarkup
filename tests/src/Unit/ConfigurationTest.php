@@ -13,7 +13,7 @@ namespace Ouxsoft\PHPMarkup\Tests\Unit;
 use Ouxsoft\PHPMarkup\Factory\ContainerFactory;
 use Ouxsoft\PHPMarkup\Factory\ConcreteFactory;
 use PHPUnit\Framework\TestCase;
-use Ouxsoft\PHPMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Exception\ParserException;
 
 class ConfigurationTest extends TestCase
 {
@@ -141,7 +141,7 @@ class ConfigurationTest extends TestCase
 
 
         // load a file that is invalid, this should not work
-        $this->expectException(Exception::class);
+        $this->expectException(ParserException::class);
         $this->config->loadFile(TEST_DIR . 'Resource/config/invalid.json');
     }
 }

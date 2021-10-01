@@ -12,6 +12,7 @@ namespace Ouxsoft\PHPMarkup\Contract;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use ArrayIterator;
+use Iterator;
 
 /**
  * Interface ElementPoolInterface

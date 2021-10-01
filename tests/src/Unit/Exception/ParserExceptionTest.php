@@ -10,18 +10,18 @@
 
 namespace Ouxsoft\PHPMarkup\Test\Unit\Exception;
 
-use Ouxsoft\PHPMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Exception\ParserException;
 use PHPUnit\Framework\TestCase;
 
-class ExceptionTest extends TestCase
+class ParserExceptionTest extends TestCase
 {
     /**
-     * @covers \Ouxsoft\PHPMarkup\Exception\Exception::__construct
-     * @covers \Ouxsoft\PHPMarkup\Exception\Exception::getLog
+     * @covers \Ouxsoft\PHPMarkup\Exception\ParserException::__construct
+     * @covers \Ouxsoft\PHPMarkup\Exception\ParserException::getLog
      */
     public function test__construct()
     {
-        $exception = new Exception('test');
+        $exception = new ParserException('test');
         $this->assertIsString($exception->getLog());
     }
 }

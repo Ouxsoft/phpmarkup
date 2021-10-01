@@ -12,7 +12,7 @@ namespace Ouxsoft\PHPMarkup\Tests\Unit;
 
 use Ouxsoft\PHPMarkup\Element\ElementPool;
 use Ouxsoft\PHPMarkup\Engine;
-use Ouxsoft\PHPMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Exception\ParserException;
 use Ouxsoft\PHPMarkup\Factory\ConcreteFactory;
 use Ouxsoft\PHPMarkup\Factory\ContainerFactory;
 use PHPUnit\Framework\TestCase;
@@ -188,7 +188,7 @@ class EngineTest extends TestCase
                 'name' => 'onRender',
                 'execute' => 'THROW_ERROR'
             ]);
-        } catch (Exception $e) {
+        } catch (ParserException $e) {
             $throw_occurred = true;
         }
         $this->assertTrue($throw_occurred);

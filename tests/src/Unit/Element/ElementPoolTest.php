@@ -13,6 +13,7 @@ namespace Ouxsoft\PHPMarkup\Tests\Unit\Element;
 use ArrayIterator;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use Ouxsoft\PHPMarkup\Element\ElementPool;
+use Ouxsoft\PHPMarkup\Engine;
 use Ouxsoft\PHPMarkup\Tests\Resource\Element\HelloWorld;
 use PHPUnit\Framework\TestCase;
 
@@ -32,8 +33,9 @@ class ElementPoolTest extends TestCase
      */
     public function testGetPropertiesById()
     {
+        $stub = $this->createStub(Engine::class);
         $pool = new ElementPool();
-        $lhtml_element = new HelloWorld();
+        $lhtml_element = new HelloWorld($stub);
         $pool->add($lhtml_element);
         $this->assertIsArray($pool->getPropertiesById($lhtml_element->element_id));
     }
@@ -43,8 +45,9 @@ class ElementPoolTest extends TestCase
      */
     public function testGetById()
     {
+        $stub = $this->createStub(Engine::class);
         $pool = new ElementPool();
-        $lhtml_element = new HelloWorld();
+        $lhtml_element = new HelloWorld($stub);
         $pool->add($lhtml_element);
         $this->assertTrue(($pool->getById($lhtml_element->element_id) instanceof AbstractElement));
 
@@ -56,8 +59,9 @@ class ElementPoolTest extends TestCase
      */
     public function testAdd()
     {
+        $stub = $this->createStub(Engine::class);
         $pool = new ElementPool();
-        $lhtml_element = new HelloWorld();
+        $lhtml_element = new HelloWorld($stub);
         $pool->add($lhtml_element);
         $this->assertTrue(($pool->getById($lhtml_element->element_id) instanceof AbstractElement));
     }
@@ -77,8 +81,9 @@ class ElementPoolTest extends TestCase
      */
     public function testCount()
     {
+        $stub = $this->createStub(Engine::class);
         $pool = new ElementPool();
-        $lhtml_element = new HelloWorld();
+        $lhtml_element = new HelloWorld($stub);
         $pool->add($lhtml_element);
         $this->assertCount(1, $pool);
     }

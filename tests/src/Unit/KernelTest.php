@@ -19,7 +19,7 @@ use Ouxsoft\PHPMarkup\Factory\ConcreteFactory;
 use Ouxsoft\PHPMarkup\Factory\ContainerFactory;
 use Ouxsoft\PHPMarkup\Document;
 use PHPUnit\Framework\TestCase;
-use Ouxsoft\PHPMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Exception\ParserException;
 
 class KernelTest extends TestCase
 {
@@ -81,11 +81,11 @@ class KernelTest extends TestCase
         $this->assertInstanceOf(Engine::class, $engine);
 
         // try a class that doesn't exists
-        $this->expectException(Exception::class);
+        $this->expectException(ParserException::class);
         $this->kernel->setBuilder('DoesNotExists');
 
         // try a class that is doesn't implement BuilderInterface
-        $this->expectException(Exception::class);
+        $this->expectException(ParserException::class);
         $this->kernel->setBuilder('ElementPool');
     }
 

@@ -18,7 +18,7 @@ use RuntimeException;
  * Class Exception
  * @package Ouxsoft\PHPMarkup\Exception
  */
-class Exception extends RuntimeException
+class ParserException extends RuntimeException
 {
     private $log;
 

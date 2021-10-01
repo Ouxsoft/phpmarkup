@@ -16,7 +16,7 @@ use Ouxsoft\PHPMarkup\Contract\BuilderInterface;
 use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
 use Ouxsoft\PHPMarkup\Contract\EngineInterface;
 use Ouxsoft\PHPMarkup\Contract\KernelInterface;
-use Ouxsoft\PHPMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Exception\ParserException;
 
 /**
  * Class Kernel
@@ -87,7 +87,7 @@ class Kernel implements KernelInterface
         $builder_class = 'Ouxsoft\\PHPMarkup\\Builder\\' . $builder_class;
 
         if (!class_exists($builder_class)) {
-            throw new Exception('Builder class "' . $builder_class . '" does not exists');
+            throw new ParserException('Builder class "' . $builder_class . '" does not exists');
         }
 
         $this->builder = new $builder_class(

@@ -112,9 +112,9 @@ class ArgumentArray implements
     /**
      * Merge array passed with container property
      *
-     * @param $array
+     * @param array $array
      */
-    public function merge($array): void
+    public function merge(array $array): void
     {
         $this->container = array_merge($array, $this->container);
     }

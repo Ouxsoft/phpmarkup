@@ -13,7 +13,8 @@ declare(strict_types=1);
 namespace Ouxsoft\PHPMarkup\Element;
 
 use Ouxsoft\PHPMarkup\ArgumentArray;
-use Ouxsoft\PHPMarkup\Exception\Exception;
+use Ouxsoft\PHPMarkup\Contract\EngineInterface;
+use Ouxsoft\PHPMarkup\Exception\ParserException;
 
 /**
  * Class Element
@@ -26,12 +27,18 @@ use Ouxsoft\PHPMarkup\Exception\Exception;
 abstract class AbstractElement
 {
     /**
+     * @var EngineInterface the Engine processing the element
+     */
+    public $engine;
+
+    /**
      * @var int|string the id used to reference object
      */
     public $element_id = 0;
 
     /**
      * @var int id used to load args
+     * @deprecated
      */
     public $id = 0;
 
@@ -42,11 +49,13 @@ abstract class AbstractElement
 
     /**
      * @var array|ArgumentArray|null args passed to during construction
+     * @deprecated
      */
     public $args = [];
 
     /**
      * @var array  tags used for filtering
+     * @deprecated
      */
     public $tags = [];
 
@@ -68,20 +77,19 @@ abstract class AbstractElement
     /**
      * Element constructor
      *
-     * @param ArgumentArray|null $args
+     * @param EngineInterface $engine
      * @param array $dynamic_properties additional class properties
      */
-    final public function __construct(ArgumentArray $args = null, array &$dynamic_properties = [])
+    final public function __construct(EngineInterface &$engine, array &$dynamic_properties = [])
     {
-        // set object id
         $this->element_id = spl_object_hash($this);
 
-        $this->args = ($args === null) ? new ArgumentArray() : $args;
+        $this->engine = &$engine;
 
         // dynamic properties, used by application e.g. templating engine, database, etc.
-        foreach($dynamic_properties as $property_name => &$property_value){
-            if(property_exists($this, $property_name)){
-                throw Exception('Property already exists.');
+        foreach ($dynamic_properties as $property_name => &$property_value) {
+            if (property_exists($this, $property_name)) {
+                throw new ParserException('Property already exists.');
             }
             $this->$property_name = &$property_value;
         }
@@ -108,7 +116,7 @@ abstract class AbstractElement
     /**
      * Gets the ID of the Element, useful for ElementPool
      *
-     * @return int|string
+     * @return string
      */
     public function getId(): string
     {
@@ -116,24 +124,25 @@ abstract class AbstractElement
     }
 
     /**
-     * Get arg by name
+     * Get live arg by name
      *
-     * @param $name
+     * @param string $name
      * @return mixed|null
      */
     public function getArgByName(string $name)
     {
-        return $this->args[$name];
+        $args = $this->getArgs();
+        return $args[$name];
     }
 
     /**
-     * Get all args
+     * Get all live args
      *
      * @return ArgumentArray
      */
     public function getArgs(): ArgumentArray
     {
-        return $this->args;
+        return $this->engine->getArgsByElementId($this->element_id);
     }
 
     /**

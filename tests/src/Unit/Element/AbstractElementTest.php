@@ -10,6 +10,7 @@
 
 namespace Ouxsoft\PHPMarkup\Tests\Unit\Element;
 
+use Ouxsoft\PHPMarkup\Engine;
 use Ouxsoft\PHPMarkup\Tests\Resource\Element\HelloWorld;
 use PHPUnit\Framework\TestCase;
 
@@ -76,7 +77,8 @@ class AbstractElementTest extends TestCase
      */
     public function testGetArgs()
     {
-        $element = new HelloWorld();
+        $stub = $this->createStub(Engine::class);
+        $element = new HelloWorld($stub);
         $element->args['test'] = 'pass';
         $this->assertArrayHasKey('test', $element->getArgs());
     }
