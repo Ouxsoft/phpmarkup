@@ -42,6 +42,13 @@
     }
   },
   "scripts": {
+    "qc" : [
+      "@fix-code-standards",
+      "@check-code-standards",
+      "@analyze",
+      "@test",
+      "@benchmark"
+    ],
     "test": [
       "XDEBUG_MODE=coverage ./vendor/bin/phpunit"
     ],

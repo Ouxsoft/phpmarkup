@@ -171,10 +171,10 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run ProcessorTest
-        run: php ./tests/Feature/ProcessorTest.php
+        run: php ./tests/src/Feature/ProcessorTest.php
 
       - name: Run SecurityTest
-        run: php ./tests/Feature/SecurityTest.php
+        run: php ./tests/src/Feature/SecurityTest.php
 
 
   dockerfile-validate:

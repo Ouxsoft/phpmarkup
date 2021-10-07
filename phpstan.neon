@@ -2,3 +2,7 @@ parameters:
   level: 5
   paths:
     - src
+  ignoreErrors:
+    - message: '#Argument of an invalid type Ouxsoft\\PHPMarkup\\Contract\\ElementPoolInterface supplied for foreach, only iterables are supported#'
+      path: src/Engine.php
+      count: 2

@@ -20,6 +20,7 @@ use Ouxsoft\PHPMarkup\Contract\ConfigurationInterface;
 use Ouxsoft\PHPMarkup\Contract\DocumentInterface;
 use Ouxsoft\PHPMarkup\Contract\ElementPoolInterface;
 use Ouxsoft\PHPMarkup\Element\ElementPool;
+use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use Ouxsoft\PHPMarkup\Contract\EngineInterface;
 use Ouxsoft\PHPMarkup\Exception\ParserException;
 
@@ -46,7 +47,7 @@ class Engine implements EngineInterface
     public $dom;
 
     /**
-     * @var ElementPoolInterface|ElementPool
+     * @var ElementPool|ElementPoolInterface
      */
     public $element_pool;
 
@@ -84,6 +85,7 @@ class Engine implements EngineInterface
     {
         // set and/or update ancestors
         foreach ($this->element_pool as $element) {
+            /** @var AbstractElement $element */
             $element->ancestors = $this->getElementAncestorProperties($element->element_id);
         }
 
@@ -95,6 +97,7 @@ class Engine implements EngineInterface
 
         switch ($routine['execute']) {
             case 'RETURN_CALL':
+                /** @var AbstractElement $element */
                 foreach ($this->element_pool as $element) {
                     $this->renderElement($element->element_id);
                 }

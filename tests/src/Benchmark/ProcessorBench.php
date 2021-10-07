@@ -29,13 +29,13 @@ class ProcessorFactoryBench
         unset($this->turn);
     }
 
-    // 20000 microseconds = 0.02 seconds
+    // 20000 microseconds = 0.020 seconds
     /**
      * @BeforeMethods("setUp")
      * @AfterMethods("tearDown")
      * @ParamProviders({"provideLHTML"})
      * @Assert("mode(variant.time.avg) < 20000")
-     * @Assert("mode(variant.mem.peak) < 2000000")
+     * @Assert("mode(variant.mem.peak) < 2500000")
      * @Iterations(10)
      * @Revs(5)
      * @OutputTimeUnit("seconds")

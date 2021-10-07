@@ -79,7 +79,7 @@ class ElementPool implements
     /**
      * Add new element to pool
      *
-     * @param $element
+     * @param AbstractElement $element
      */
     public function add(AbstractElement &$element): void
     {
@@ -89,7 +89,7 @@ class ElementPool implements
     /**
      * Invoke a method if present in each element
      *
-     * @param $routine
+     * @param string $routine
      */
     public function callRoutine(string $routine): void
     {
