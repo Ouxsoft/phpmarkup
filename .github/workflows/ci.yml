@@ -113,36 +113,6 @@ jobs:
         if: matrix.submit-coverage == 'yes'
         run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f tests/output/clover.xml
 
-  php-benchmark-test:
-    name: "PHP ${{ matrix.php-version }} Benchmark Tests"
-    needs:
-      - composer-validate
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php-version:
-          - '7.2'
-          - '7.3'
-          - '7.4'
-          - '8.0'
-    steps:
-      - name: "Checkout code"
-        uses: actions/checkout@v2
-
-      - name: Cache Composer packages
-        uses: actions/cache@v2
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
-
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
-
-      - name: Run PHP Benchmark Tests
-        run: composer run-script benchmark
-
   php-feature-test:
     name: "PHP ${{ matrix.php-version }} Feature Tests"
     needs:
@@ -173,6 +143,35 @@ jobs:
       - name: Run ProcessorTest
         run: composer run-script feature-test
 
+  php-benchmark-test:
+    name: "PHP ${{ matrix.php-version }} Benchmark Tests"
+    needs:
+      - composer-validate
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version:
+          - '7.2'
+          - '7.3'
+          - '7.4'
+          - '8.0'
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v2
+
+      - name: Cache Composer packages
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run PHP Benchmark Tests
+        run: composer run-script benchmark
 
   dockerfile-validate:
     name: "Dockerfile Validate"
