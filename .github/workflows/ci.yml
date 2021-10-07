@@ -107,7 +107,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run PHP Unit Tests
-        run: composer run-script test
+        run: composer run-script unit-test
 
       - name: Submit code coverage
         if: matrix.submit-coverage == 'yes'
@@ -171,10 +171,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run ProcessorTest
-        run: php ./tests/src/Feature/ProcessorTest.php
-
-      - name: Run SecurityTest
-        run: php ./tests/src/Feature/SecurityTest.php
+        run: composer run-script feature-test
 
 
   dockerfile-validate:

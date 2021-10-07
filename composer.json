@@ -46,11 +46,19 @@
       "@fix-code-standards",
       "@check-code-standards",
       "@analyze",
-      "@test",
+      "@unit-test",
+      "@feature-test",
       "@benchmark"
     ],
     "test": [
-      "XDEBUG_MODE=coverage ./vendor/bin/phpunit"
+      "@unit-test",
+      "@feature-test"
+    ],
+    "unit-test": [
+      "XDEBUG_MODE=coverage ./vendor/bin/phpunit --testsuite unit"
+    ],
+    "feature-test": [
+      "XDEBUG_MODE=coverage ./vendor/bin/phpunit --testsuite feature"
     ],
     "benchmark" : [
       "./vendor/bin/phpbench run tests/src/Benchmark --report=env --progress=dots"
