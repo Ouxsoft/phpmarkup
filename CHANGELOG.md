@@ -11,6 +11,11 @@ All releases must adhere to [SemVer 2](https://semver.org/) naming convention an
 ## PHPMarkup [Unreleased]
 Released: TBA. Notable changes:
 
+## PHPMarkup 4.2.3
+Released: 2021-10-06. Notable changes:
+* Added: CI via Github Action.
+* Added: Live argument access.
+
 ## PHPMarkup 4.2.2
 Released: 2021-07-12. Notable changes:
 * Fixed: Add Properties bug.

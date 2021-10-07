@@ -18,7 +18,7 @@ $ composer require ouxsoft/phpmarkup
 ```
 
 ## Basic Usage
-Create an Element class with DOMElement processing instructions.
+Create an Element class containing DOMElement processing instructions.
 ```php
 <?php
 
