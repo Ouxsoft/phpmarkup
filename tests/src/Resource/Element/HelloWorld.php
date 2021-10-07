@@ -10,7 +10,7 @@
 
 namespace Ouxsoft\PHPMarkup\Tests\Resource\Element;
 
-use Ouxsoft\PHPMarkup\Element\AbstractElement as AbstractElement;
+use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
  * Class HelloWorld

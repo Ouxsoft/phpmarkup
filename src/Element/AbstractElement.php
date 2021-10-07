@@ -161,7 +161,7 @@ abstract class AbstractElement
      * @param string $method
      * @return bool
      */
-    final public function __invoke(string $method): bool
+    public function __invoke(string $method): bool
     {
         // if method does not exist, return
         if (!method_exists($this, $method)) {

@@ -11,19 +11,41 @@
 namespace Ouxsoft\PHPMarkup\Tests\Unit\Element;
 
 use Ouxsoft\PHPMarkup\Engine;
+use Ouxsoft\PHPMarkup\ArgumentArray;
 use Ouxsoft\PHPMarkup\Tests\Resource\Element\HelloWorld;
 use PHPUnit\Framework\TestCase;
 
 class AbstractElementTest extends TestCase
 {
     /**
+     * @var HelloWorld
+     */
+    private $element;
+
+    public function setUp(): void
+    {
+        $args = new ArgumentArray();
+        $args['test'] = 'pass';
+
+        $stub = $this->createStub(Engine::class);
+        $stub->method('getArgsByElementId')
+            ->willReturn($args);
+
+        $this->element = new HelloWorld($stub);
+    }
+
+    public function tearDown(): void
+    {
+        unset($this->element);
+    }
+
+    /**
      * @covers \Ouxsoft\PHPMarkup\Element\AbstractElement::getArgByName
      */
     public function testGetArgByName()
     {
-        $element = new HelloWorld();
-        $element->args['test'] = 'pass';
-        $this->assertEquals('pass', $element->getArgByName('test'));
+        $this->element->args['test'] = 'pass';
+        $this->assertEquals('pass', $this->element->getArgByName('test'));
     }
 
     /**
@@ -31,8 +53,7 @@ class AbstractElementTest extends TestCase
      */
     public function test__construct()
     {
-        $element = new HelloWorld();
-        $this->assertTrue(isset($element->element_id));
+        $this->assertTrue(isset($this->element->element_id));
     }
 
     /**
@@ -40,8 +61,8 @@ class AbstractElementTest extends TestCase
      */
     public function testOnRender()
     {
-        $element = new HelloWorld();
-        $this->assertTrue($element('onRender'));
+        $result = $this->element->onRender();
+        $this->assertEquals('Hello, World', $result);
     }
 
     /**
@@ -49,8 +70,10 @@ class AbstractElementTest extends TestCase
      */
     public function test__invoke()
     {
-        $element = new HelloWorld();
-        $this->assertTrue($element('onRender'));
+        $stub = $this->createStub(Engine::class);
+        $element = new HelloWorld($stub);
+        $result = $element('onRender');
+        $this->assertTrue($result);
     }
 
     /**
@@ -58,9 +81,8 @@ class AbstractElementTest extends TestCase
      */
     public function testInnerText()
     {
-        $element = new HelloWorld();
-        $element->xml = 'pass';
-        $this->assertStringContainsString($element->innerText(), 'pass');
+        $this->element->xml = 'pass';
+        $this->assertStringContainsString($this->element->innerText(), 'pass');
     }
 
     /**
@@ -68,8 +90,7 @@ class AbstractElementTest extends TestCase
      */
     public function test__toString()
     {
-        $element = new HelloWorld();
-        $this->assertStringContainsString('Hello, World', $element);
+        $this->assertStringContainsString('Hello, World', $this->element);
     }
 
     /**
@@ -77,10 +98,7 @@ class AbstractElementTest extends TestCase
      */
     public function testGetArgs()
     {
-        $stub = $this->createStub(Engine::class);
-        $element = new HelloWorld($stub);
-        $element->args['test'] = 'pass';
-        $this->assertArrayHasKey('test', $element->getArgs());
+        $this->assertArrayHasKey('test', $this->element->getArgs());
     }
 
     /**
@@ -88,7 +106,6 @@ class AbstractElementTest extends TestCase
      */
     public function testGetId()
     {
-        $element = new HelloWorld();
-        $this->assertIsString($element->getId());
+        $this->assertIsString($this->element->getId());
     }
 }
