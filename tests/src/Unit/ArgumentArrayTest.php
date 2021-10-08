@@ -21,7 +21,7 @@ class ArgumentArrayTest extends TestCase
      */
     public $args;
 
-    public function setUp() : void
+    public function setUp(): void
     {
         $this->args = new ArgumentArray();
     }
@@ -147,7 +147,6 @@ class ArgumentArrayTest extends TestCase
      */
     public function testCurrent()
     {
-        
         $this->args[] = 'test 1';
         $this->assertEquals('test 1', $this->args->current());
     }

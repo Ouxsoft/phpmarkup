@@ -152,7 +152,8 @@ abstract class AbstractElement
      */
     public function innerText(): ?string
     {
-        return $this->engine->sanitizeXml($this->xml);;
+        return $this->engine->sanitizeXml($this->xml);
+        ;
     }
 
     /**

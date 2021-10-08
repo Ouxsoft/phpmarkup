@@ -72,6 +72,19 @@ interface EngineInterface
     public function renderElement(string $element_id): bool;
 
     /**
+     * @param string $xml
+     * @return string
+     */
+    public function sanitizeXml(string $xml): string;
+
+    /**
+     * @param string $xml
+     * @param array $attributes
+     * @return string
+     */
+    public function stripAttributes(string $xml, array $attributes): string;
+
+    /**
      * @param string $element_id
      * @return string
      */
@@ -105,7 +118,7 @@ interface EngineInterface
      * @return ArgumentArray
      */
     public function getArgsByElementId(string $element_id): ArgumentArray;
-    
+
     /**
      * @return string
      */

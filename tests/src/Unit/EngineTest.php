@@ -34,7 +34,7 @@ class EngineTest extends TestCase
     {
         unset($this->engine);
     }
-    
+
     /**
      * @covers \Ouxsoft\PHPMarkup\Engine::queryFetchAll
      */

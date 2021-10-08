@@ -34,12 +34,12 @@ use Ouxsoft\PHPMarkup\Exception\ParserException;
 class Engine implements EngineInterface
 {
     // TODO: implement PHPMarkup const
-     const RETURN_CALL = 1;
+    public const RETURN_CALL = 1;
 
     /**
      * marker attribute used by Engine to identify DOMElement during processing
      */
-    const INDEX_ATTRIBUTE = '_ELEMENT_ID';
+    public const INDEX_ATTRIBUTE = '_ELEMENT_ID';
 
     /**
      * @var DocumentInterface|Document|DOMDocument DOM
@@ -390,10 +390,10 @@ class Engine implements EngineInterface
      * @param string $xml
      * @return string
      */
-    public function sanitizeXml(string $xml) : string
+    public function sanitizeXml(string $xml): string
     {
         // strip args
-        $xml = preg_replace("/<arg.*?>(.*)?<\/arg>/im",'',$xml);
+        $xml = preg_replace("/<arg.*?>(.*)?<\/arg>/im", '', $xml);
         // strip INDEX_ATTRIBUTE
         $xml = $this->stripAttribute($xml, [self::INDEX_ATTRIBUTE]);
 
@@ -406,15 +406,15 @@ class Engine implements EngineInterface
      * @param array $attributes
      * @return string
      */
-    function stripAttributes(string $xml, array $attributes) : string
+    public function stripAttributes(string $xml, array $attributes): string
     {
         $xml = '<div>' . $xml . '</div>';
-        $dom = new DOMDocument;
+        $dom = new DOMDocument();
         $dom->loadXML($xml);
         $xPath = new DOMXPath($dom);
-        foreach($attributes as $attribute) {
+        foreach ($attributes as $attribute) {
             $nodes = $xPath->query('//*[@' . $attribute . ']');
-            foreach($nodes as $node) {
+            foreach ($nodes as $node) {
                 $node->removeAttribute($attribute);
             }
         }

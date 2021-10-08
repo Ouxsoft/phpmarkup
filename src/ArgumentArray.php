@@ -44,7 +44,7 @@ class ArgumentArray implements
      * @param string|null $type
      * @return void
      */
-    public function set(string $name, string $value = null, ?string $type = NULL) : void
+    public function set(string $name, string $value = null, ?string $type = null): void
     {
         $type = strtolower($type);
 
@@ -205,16 +205,14 @@ class ArgumentArray implements
     /**
      * @return bool
      */
-    public function valid() : bool
+    public function valid(): bool
     {
         $k = array_keys($this->container);
         return isset($k[$this->index]);
     }
 
-    public function rewind() : void
+    public function rewind(): void
     {
         $this->index = 0;
     }
-
-
 }

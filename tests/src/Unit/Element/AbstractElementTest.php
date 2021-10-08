@@ -91,7 +91,6 @@ class AbstractElementTest extends TestCase
         // test to ensure INDEX_ATTRIBUTE removed
         $this->element->xml = "<div {Engine::INDEX_ATTRIBUTE}<arg>Hello, World</arg>";
         $this->assertStringNotContainsString(Engine::INDEX_ATTRIBUTE, $this->element->innerText());
-
     }
 
     /**
