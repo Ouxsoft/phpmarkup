@@ -4,7 +4,7 @@ First off, thanks for taking the time to contribute!
 
 For local package development use [Docker](https://www.docker.com/products/docker-desktop):
 
-Build Test container
+**Step 1**) Pull code and build Test container
 ```
 git clone https://github.com/Ouxsoft/phpmarkup.git
 cd phpmarkup
@@ -12,18 +12,17 @@ docker build --target test --tag phpmarkup:latest -f Dockerfile .
 docker run -it --mount type=bind,source="$(pwd)"/,target=/application/ phpmarkup:latest composer install
 ```
 
-Run Automated Unit Tests using local volume
+**Step 2**) Make code changes.
+
+**Step 3**) Run Automated QA using local volume
 ```
-docker run -it --mount type=bind,source="$(pwd)"/,target=/application/ phpmarkup:latest composer test
+docker run -it --mount type=bind,source="$(pwd)"/,target=/application/ phpmarkup:latest composer qa
 ```
 
-Run Automated Benchmark Tests using local volume
-```
-docker run -it --mount type=bind,source="$(pwd)"/,target=/application/ phpmarkup:latest ./vendor/bin/phpbench run tests/src/Benchmark --report=default
-```
-
-Rebuild Docs
+**Step 4**) Rebuild Docs
 ```
 docker build --target docs --tag phpmarkup:docs-latest -f Dockerfile .
 docker run -it --mount type=bind,source="$(pwd)"/,target=/app/ phpmarkup:docs-latest bash -c "cd /app/docs && doxygen Doxyfile && doxyphp2sphinx Ouxsoft::PHPMarkup"
 ```
+
+**Step 5**) Submit PR

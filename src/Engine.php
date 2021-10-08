@@ -395,7 +395,7 @@ class Engine implements EngineInterface
         // strip args
         $xml = preg_replace("/<arg.*?>(.*)?<\/arg>/im", '', $xml);
         // strip INDEX_ATTRIBUTE
-        $xml = $this->stripAttribute($xml, [self::INDEX_ATTRIBUTE]);
+        $xml = $this->stripAttributes($xml, [self::INDEX_ATTRIBUTE]);
 
         return $xml;
     }
