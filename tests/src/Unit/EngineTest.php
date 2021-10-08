@@ -34,34 +34,7 @@ class EngineTest extends TestCase
     {
         unset($this->engine);
     }
-
-    /**
-     * @covers \Ouxsoft\PHPMarkup\Engine::setType
-     */
-    public function testSetType()
-    {
-        $results = $this->engine->setType('0', 'string');
-        $this->assertIsString($results);
-
-        $results = $this->engine->setType('2', 'int');
-        $this->assertIsInt($results);
-
-        $results = $this->engine->setType('1', 'bool');
-        $this->assertIsBool($results);
-
-        $results = $this->engine->setType('1.1', 'float');
-        $this->assertIsFloat($results);
-
-        $results = $this->engine->setType('', 'null');
-        $this->assertNull($results);
-
-        $results = $this->engine->setType('Cat,Dog,Pig', 'list');
-        $this->assertIsArray($results);
-
-        $results = $this->engine->setType('["Cat","Dog","Pig"]', 'json');
-        $this->assertIsArray($results);
-    }
-
+    
     /**
      * @covers \Ouxsoft\PHPMarkup\Engine::queryFetchAll
      */

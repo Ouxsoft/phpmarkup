@@ -146,13 +146,13 @@ abstract class AbstractElement
     }
 
     /**
-     * Get innerText
+     * Get sanitized innerText with args processing info removed
      *
      * @return string|null
      */
     public function innerText(): ?string
     {
-        return $this->xml;
+        return $this->engine->sanitizeXml($this->xml);;
     }
 
     /**

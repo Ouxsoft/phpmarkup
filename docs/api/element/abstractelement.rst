@@ -5,12 +5,11 @@ AbstractElement
 
 .. php:class:: AbstractElement
 
-  .. php:method:: public __construct ([])
+  .. php:method:: public __construct (EngineInterface`  $engine[, array & $dynamic_properties])
 
     Element constructor
 
-    :param ArgumentArray $args:
-      Default: ``null``
+    :param EngineInterface`  $engine:
     :param array & $dynamic_properties:
       Default: ``[]``
 
@@ -29,26 +28,26 @@ AbstractElement
 
   .. php:method:: public getArgByName (string $name)
 
-    Get arg by name
+    Get live arg by name
 
     :param string $name:
     :returns: mixed|null
 
   .. php:method:: public getArgs () -> ArgumentArray
 
-    Get all args
+    Get all live args
 
     :returns: :class:`ArgumentArray` -- 
 
-  .. php:method:: public getId ()
+  .. php:method:: public getId () -> string
 
     Gets the ID of the Element, useful for :class:`ElementPool`
 
-    :returns: int|string
+    :returns: string -- 
 
   .. php:method:: public innerText ()
 
-    Get innerText
+    Get sanitized innerText with args processing info removed
 
     :returns: string|null
 

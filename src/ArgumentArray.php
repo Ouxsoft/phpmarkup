@@ -26,12 +26,64 @@ class ArgumentArray implements
     Iterator,
     Countable
 {
+    /**
+     * @var array
+     */
     private $container = [];
 
+    /**
+     * @var int
+     */
     private $index = 0;
 
     /**
+     * Set a value type to avoid Type Juggling issues and extend data types
+     *
+     * @param string $name
+     * @param string|null $value
+     * @param string|null $type
+     * @return void
+     */
+    public function set(string $name, string $value = null, ?string $type = NULL) : void
+    {
+        $type = strtolower($type);
+
+        switch ($type) {
+            case 'string':
+            case 'str':
+                $value = (string)$value;
+                break;
+            case 'json':
+                $value = json_decode($value);
+                break;
+            case 'int':
+            case 'integer':
+                $value = (int)$value;
+                break;
+            case 'float':
+                $value = (float)$value;
+                break;
+            case 'bool':
+            case 'boolean':
+                $value = (bool)$value;
+                break;
+            case 'null':
+                $value = null;
+                break;
+            case 'list':
+                $value = explode(',', $value);
+                break;
+            default:
+                // no transform
+                break;
+        }
+
+        $this->container[$name] = $value;
+    }
+
+    /**
      * Returns count of containers
+     *
      * @return int
      */
     public function count(): int
@@ -153,14 +205,16 @@ class ArgumentArray implements
     /**
      * @return bool
      */
-    public function valid()
+    public function valid() : bool
     {
         $k = array_keys($this->container);
         return isset($k[$this->index]);
     }
 
-    public function rewind()
+    public function rewind() : void
     {
         $this->index = 0;
     }
+
+
 }

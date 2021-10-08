@@ -10,8 +10,16 @@ DocumentInterface
     :class:`DocumentInterface` constructor.
 
 
+  .. php:method:: public createDocumentFragment () -> mixed
+
+    :returns: mixed -- 
+
   .. php:method:: public loadSource (string $source) -> bool
 
     :param string $source:
     :returns: bool -- 
+
+  .. php:method:: public saveHTML () -> mixed
+
+    :returns: mixed -- 
 

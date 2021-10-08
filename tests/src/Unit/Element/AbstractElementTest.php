@@ -83,6 +83,15 @@ class AbstractElementTest extends TestCase
     {
         $this->element->xml = 'pass';
         $this->assertStringContainsString($this->element->innerText(), 'pass');
+
+        // test to args removed
+        $this->element->xml = '<arg>Hello, World</arg>';
+        $this->assertStringNotContainsString('arg', $this->element->innerText());
+
+        // test to ensure INDEX_ATTRIBUTE removed
+        $this->element->xml = "<div {Engine::INDEX_ATTRIBUTE}<arg>Hello, World</arg>";
+        $this->assertStringNotContainsString(Engine::INDEX_ATTRIBUTE, $this->element->innerText());
+
     }
 
     /**

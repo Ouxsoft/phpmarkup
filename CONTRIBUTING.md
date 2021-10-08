@@ -25,5 +25,5 @@ docker run -it --mount type=bind,source="$(pwd)"/,target=/application/ phpmarkup
 Rebuild Docs
 ```
 docker build --target docs --tag phpmarkup:docs-latest -f Dockerfile .
-docker run -it --mount type=bind,source="$(pwd)"/docs,target=/app/docs phpmarkup:docs-latest bash -c "doxygen Doxyfile && doxyphp2sphinx Ouxsoft::phpmarkup"
+docker run -it --mount type=bind,source="$(pwd)"/,target=/app/ phpmarkup:docs-latest bash -c "cd /app/docs && doxygen Doxyfile && doxyphp2sphinx Ouxsoft::PHPMarkup"
 ```

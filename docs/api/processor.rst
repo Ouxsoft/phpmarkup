@@ -24,18 +24,18 @@ Processor
 
     :param array $elements:
 
-  .. php:method:: public addProperties (array $properties)
+  .. php:method:: public addProperties (array & $properties)
 
     Add multiple Properties at once
 
-    :param array $properties:
+    :param array & $properties:
 
-  .. php:method:: public addProperty (string $property_name, $property_value)
+  .. php:method:: public addProperty (string $property_name, & $property_value)
 
     Add a Property. Properties are passed by reference to all Elements during initialization and become a property of that element e.g. new Element($args, $properties)
 
     :param string $property_name:
-    :param $property_value:
+    :param & $property_value:
 
   .. php:method:: public addRoutine (array $routine)
 
@@ -55,11 +55,11 @@ Processor
 
     :returns: BuilderInterface
 
-  .. php:method:: public getConfig () -> Configuration
+  .. php:method:: public getConfig ()
 
     Get config
 
-    :returns: :class:`Configuration` -- 
+    :returns: ConfigurationInterface
 
   .. php:method:: public getStatus () -> bool
 

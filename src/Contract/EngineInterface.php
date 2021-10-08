@@ -105,14 +105,7 @@ interface EngineInterface
      * @return ArgumentArray
      */
     public function getArgsByElementId(string $element_id): ArgumentArray;
-
-    /**
-     * @param string|null $value
-     * @param string $type
-     * @return mixed
-     */
-    public function setType(string $value = null, $type = 'string');
-
+    
     /**
      * @return string
      */

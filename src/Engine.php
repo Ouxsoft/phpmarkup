@@ -34,12 +34,12 @@ use Ouxsoft\PHPMarkup\Exception\ParserException;
 class Engine implements EngineInterface
 {
     // TODO: implement PHPMarkup const
-    public const RETURN_CALL = 1;
+     const RETURN_CALL = 1;
 
     /**
      * marker attribute used by Engine to identify DOMElement during processing
      */
-    public const INDEX_ATTRIBUTE = '_ELEMENT_ID';
+    const INDEX_ATTRIBUTE = '_ELEMENT_ID';
 
     /**
      * @var DocumentInterface|Document|DOMDocument DOM
@@ -351,17 +351,15 @@ class Engine implements EngineInterface
     {
         $args = new ArgumentArray();
 
-        // set attributes belonging to DOMElement as args
+        // get attributes belonging to DOMElement as args
         if ($element->hasAttributes()) {
             foreach ($element->attributes as $name => $attribute) {
                 $args[$name] = $attribute->value;
             }
         }
 
-        // get all direct child arg DOMElements
+        // set all direct child arg DOMElements as args
         $arg_elements = $this->queryFetchAll('arg', $element);
-
-        // set arg DOMElements as args
         foreach ($arg_elements as $child_node) {
             $name = $child_node->getAttribute('name');
 
@@ -380,18 +378,47 @@ class Engine implements EngineInterface
             // get type
             $type = $child_node->getAttribute('type') ?? 'string';
 
-            // perform type juggling
-            $value = $this->setType($value, $type);
-
-            // add item to args
-            $args[$name] = $value;
-
-            // remove element
-            // when do args get removed?
-            // $child_node->parentNode->removeChild($child_node);
+            // set value performing type juggling
+            $args->set($name, $value, $type);
         }
 
         return $args;
+    }
+
+    /**
+     * Remove args and INDEX_ATTRIBUTE
+     * @param string $xml
+     * @return string
+     */
+    public function sanitizeXml(string $xml) : string
+    {
+        // strip args
+        $xml = preg_replace("/<arg.*?>(.*)?<\/arg>/im",'',$xml);
+        // strip INDEX_ATTRIBUTE
+        $xml = $this->stripAttribute($xml, [self::INDEX_ATTRIBUTE]);
+
+        return $xml;
+    }
+
+    /**
+     * Strip attributes
+     * @param string $xml
+     * @param array $attributes
+     * @return string
+     */
+    function stripAttributes(string $xml, array $attributes) : string
+    {
+        $xml = '<div>' . $xml . '</div>';
+        $dom = new DOMDocument;
+        $dom->loadXML($xml);
+        $xPath = new DOMXPath($dom);
+        foreach($attributes as $attribute) {
+            $nodes = $xPath->query('//*[@' . $attribute . ']');
+            foreach($nodes as $node) {
+                $node->removeAttribute($attribute);
+            }
+        }
+        return substr($dom->saveXML($dom->getElementsByTagName('div')->item(0)), 5, -6);
     }
 
     /**
@@ -409,51 +436,6 @@ class Engine implements EngineInterface
         }
         return $element_args;
     }
-
-    /**
-     * Set a value type to avoid Type Juggling issues and extend data types
-     *
-     * @param string|null $value
-     * @param string $type
-     * @return bool|mixed|string|null
-     */
-    public function setType(string $value = null, $type = 'string')
-    {
-        $type = strtolower($type);
-
-        switch ($type) {
-            case 'string':
-            case 'str':
-                $value = (string)$value;
-                break;
-            case 'json':
-                $value = json_decode($value);
-                break;
-            case 'int':
-            case 'integer':
-                $value = (int)$value;
-                break;
-            case 'float':
-                $value = (float)$value;
-                break;
-            case 'bool':
-            case 'boolean':
-                $value = (bool)$value;
-                break;
-            case 'null':
-                $value = null;
-                break;
-            case 'list':
-                $value = explode(',', $value);
-                break;
-            default:
-                // no transform
-                break;
-        }
-
-        return $value;
-    }
-
 
     /**
      * Returns DomDocument property as HTML5

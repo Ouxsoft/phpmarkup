@@ -5,13 +5,13 @@ EngineInterface
 
 .. php:interface:: EngineInterface
 
-  .. php:method:: public __construct (DocumentInterface`  $document, ElementPoolInterface`  $element_pool, Configuration`  $config)
+  .. php:method:: public __construct (DocumentInterface`  $document, ElementPoolInterface`  $element_pool, ConfigurationInterface`  $config)
 
     :class:`EngineInterface` constructor.
 
     :param DocumentInterface`  $document:
     :param ElementPoolInterface`  $element_pool:
-    :param Configuration`  $config:
+    :param ConfigurationInterface`  $config:
 
   .. php:method:: public __toString () -> string
 
@@ -21,6 +21,11 @@ EngineInterface
 
     :param array $routine:
     :returns: bool -- 
+
+  .. php:method:: public getArgsByElementId (string $element_id) -> ArgumentArray
+
+    :param string $element_id:
+    :returns: :class:`ArgumentArray` -- 
 
   .. php:method:: public getDomElementByPlaceholderId (string $element_id)
 
@@ -74,12 +79,4 @@ EngineInterface
 
     :param DOMElement $element:
     :param string $new_xml:
-
-  .. php:method:: public setType ([]) -> mixed
-
-    :param $value:
-      Default: ``null``
-    :param $type:
-      Default: ``'string'``
-    :returns: mixed -- 
 

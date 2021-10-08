@@ -11,6 +11,10 @@ Document
     :class:`Document` constructor.
 
 
+  .. php:method:: public createDocumentFragment () -> mixed
+
+    :returns: mixed -- 
+
   .. php:method:: public loadSource (string $source) -> bool
 
     Loads source, which is in LHTML format, as DomDocument
@@ -18,4 +22,8 @@ A custom load page wrapper is required for server-side HTML5 entity support. Usi
 
     :param string $source:
     :returns: bool -- 
+
+  .. php:method:: public saveHTML () -> mixed
+
+    :returns: mixed -- 
 

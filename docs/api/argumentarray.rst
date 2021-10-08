@@ -25,11 +25,11 @@ ArgumentArray
 
     :returns: bool|float|int|mixed|string|null
 
-  .. php:method:: public merge ($array)
+  .. php:method:: public merge (array $array)
 
     Merge array passed with container property
 
-    :param $array:
+    :param array $array:
 
   .. php:method:: public next ()
 
@@ -64,6 +64,17 @@ ArgumentArray
 
   .. php:method:: public rewind ()
 
+
+  .. php:method:: public set (string $name[, string $value, ?string $type])
+
+    Set a value type to avoid Type Juggling issues and extend data types
+
+    :param string $name:
+    :param string $value:
+      Default: ``null``
+    :param ?string $type:
+      Default: ``NULL``
+    :returns: void
 
   .. php:method:: public valid () -> bool
 

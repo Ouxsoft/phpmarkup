@@ -11,18 +11,60 @@
 namespace Ouxsoft\PHPMarkup\Tests\Unit;
 
 use Ouxsoft\PHPMarkup\ArgumentArray;
+use PhpParser\Node\Arg;
 use PHPUnit\Framework\TestCase;
 
 class ArgumentArrayTest extends TestCase
 {
     /**
+     * @var ArgumentArray
+     */
+    public $args;
+
+    public function setUp() : void
+    {
+        $this->args = new ArgumentArray();
+    }
+
+    public function tearDown(): void
+    {
+        unset($this->args);
+    }
+
+    /**
+     * @covers \Ouxsoft\PHPMarkup\ArgumentArray::set
+     */
+    public function testSet()
+    {
+        $this->args->set('a', '0', 'string');
+        $this->assertIsString($this->args['a']);
+
+        $this->args->set('a', '2', 'int');
+        $this->assertIsInt($this->args['a']);
+
+        $this->args->set('a', '1', 'bool');
+        $this->assertIsBool($this->args['a']);
+
+        $this->args->set('a', '1.1', 'float');
+        $this->assertIsFloat($this->args['a']);
+
+        $this->args->set('a', '', 'null');
+        $this->assertNull($this->args['a']);
+
+        $this->args->set('a', 'Cat,Dog,Pig', 'list');
+        $this->assertIsArray($this->args['a']);
+
+        $this->args->set('a', '["Cat","Dog","Pig"]', 'json');
+        $this->assertIsArray($this->args['a']);
+    }
+
+    /**
      * @covers \Ouxsoft\PHPMarkup\ArgumentArray::count
      */
     public function testCount()
     {
-        $args = new ArgumentArray();
-        $args->offsetSet('1', 'test');
-        $this->assertCount(1, $args);
+        $this->args->offsetSet('1', 'test');
+        $this->assertCount(1, $this->args);
     }
 
     /**
@@ -30,28 +72,27 @@ class ArgumentArrayTest extends TestCase
      */
     public function testOffsetSet()
     {
-        $args = new ArgumentArray();
-        $args->offsetSet('1', 'test');
-        $this->assertCount(1, $args);
+        $this->args->offsetSet('1', 'test');
+        $this->assertCount(1, $this->args);
 
         // check to make sure only one item exists
-        $args->offsetSet('1', 'test');
-        $this->assertCount(1, $args);
+        $this->args->offsetSet('1', 'test');
+        $this->assertCount(1, $this->args);
 
 
         // check to see if it turns key into an array
-        $args->offsetSet('1', 'test_2');
-        $this->assertCount(1, $args);
-        $this->assertIsArray($args['1']);
+        $this->args->offsetSet('1', 'test_2');
+        $this->assertCount(1, $this->args);
+        $this->assertIsArray($this->args['1']);
 
         // check to make sure duplicated item isn't added to array
-        $args->offsetSet('1', 'test_2');
-        $this->assertCount(1, $args);
+        $this->args->offsetSet('1', 'test_2');
+        $this->assertCount(1, $this->args);
 
 
         // check if item added to array
-        $args->offsetSet('1', 'test3');
-        $this->assertCount(1, $args);
+        $this->args->offsetSet('1', 'test3');
+        $this->assertCount(1, $this->args);
     }
 
     /**
@@ -59,9 +100,8 @@ class ArgumentArrayTest extends TestCase
      */
     public function testOffsetExists()
     {
-        $args = new ArgumentArray();
-        $args->offsetSet('1', 'test');
-        $bool = $args->offsetExists(1);
+        $this->args->offsetSet('1', 'test');
+        $bool = $this->args->offsetExists(1);
         $this->assertTrue($bool);
     }
 
@@ -70,9 +110,8 @@ class ArgumentArrayTest extends TestCase
      */
     public function testGet()
     {
-        $args = new ArgumentArray();
-        $args['test'] = 'pass';
-        $this->assertArrayHasKey('test', $args->get());
+        $this->args['test'] = 'pass';
+        $this->assertArrayHasKey('test', $this->args->get());
     }
 
     /**
@@ -80,9 +119,8 @@ class ArgumentArrayTest extends TestCase
      */
     public function testOffsetGet()
     {
-        $args = new ArgumentArray();
-        $args['test'] = 'pass';
-        $this->assertStringContainsString($args->offsetGet('test'), 'pass');
+        $this->args['test'] = 'pass';
+        $this->assertStringContainsString($this->args->offsetGet('test'), 'pass');
     }
 
     /**
@@ -90,10 +128,9 @@ class ArgumentArrayTest extends TestCase
      */
     public function testOffsetUnset()
     {
-        $args = new ArgumentArray();
-        $args['test'] = 'pass';
-        $args->offsetUnset('test');
-        $this->assertArrayNotHasKey('test', $args->get());
+        $this->args['test'] = 'pass';
+        $this->args->offsetUnset('test');
+        $this->assertArrayNotHasKey('test', $this->args->get());
     }
 
     /**
@@ -101,9 +138,8 @@ class ArgumentArrayTest extends TestCase
      */
     public function testMerge()
     {
-        $args = new ArgumentArray();
-        $args->merge(['test' => 'pass']);
-        $this->assertArrayHasKey('test', $args->get());
+        $this->args->merge(['test' => 'pass']);
+        $this->assertArrayHasKey('test', $this->args->get());
     }
 
     /**
@@ -111,9 +147,9 @@ class ArgumentArrayTest extends TestCase
      */
     public function testCurrent()
     {
-        $args = new ArgumentArray();
-        $args[] = 'test 1';
-        $this->assertEquals('test 1', $args->current());
+        
+        $this->args[] = 'test 1';
+        $this->assertEquals('test 1', $this->args->current());
     }
 
     /**
@@ -121,11 +157,10 @@ class ArgumentArrayTest extends TestCase
      */
     public function testNext()
     {
-        $args = new ArgumentArray();
-        $args['a'] = 'a';
-        $args['b'] = 'b';
-        $args['c'] = 'c';
-        foreach ($args as $key => $arg) {
+        $this->args['a'] = 'a';
+        $this->args['b'] = 'b';
+        $this->args['c'] = 'c';
+        foreach ($this->args as $key => $arg) {
             $this->assertEquals($key, $arg);
         }
     }
@@ -135,9 +170,8 @@ class ArgumentArrayTest extends TestCase
      */
     public function testKey()
     {
-        $args = new ArgumentArray();
-        $args['a'] = 'test';
-        $this->assertEquals('a', $args->key());
+        $this->args['a'] = 'test';
+        $this->assertEquals('a', $this->args->key());
     }
 
     /**
@@ -145,9 +179,8 @@ class ArgumentArrayTest extends TestCase
      */
     public function testValid()
     {
-        $args = new ArgumentArray();
-        $args[] = 'test';
-        $this->assertEquals(true, $args->valid());
+        $this->args[] = 'test';
+        $this->assertEquals(true, $this->args->valid());
     }
 
     /**
@@ -155,10 +188,9 @@ class ArgumentArrayTest extends TestCase
      */
     public function testRewind()
     {
-        $args = new ArgumentArray();
-        $args[] = 'test 1';
-        $args[] = 'test 2';
-        $args->next();
-        $this->assertEquals(0, $args->rewind());
+        $this->args[] = 'test 1';
+        $this->args[] = 'test 2';
+        $this->args->next();
+        $this->assertEquals(0, $this->args->rewind());
     }
 }

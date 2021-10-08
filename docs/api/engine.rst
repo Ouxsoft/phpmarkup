@@ -6,13 +6,13 @@ Engine
 
 .. php:class:: Engine
 
-  .. php:method:: public __construct (DocumentInterface`  $document, ElementPoolInterface`  $element_pool, Configuration`  $config)
+  .. php:method:: public __construct (DocumentInterface`  $document, ElementPoolInterface`  $element_pool, ConfigurationInterface`  $config)
 
     EngineInterface constructor.
 
     :param DocumentInterface`  $document:
     :param ElementPoolInterface`  $element_pool:
-    :param Configuration`  $config:
+    :param ConfigurationInterface`  $config:
 
   .. php:method:: public __toString () -> string
 
@@ -22,10 +22,15 @@ Engine
 
   .. php:method:: public callRoutine (array $routine) -> bool
 
-    Call Hooks
-
     :param array $routine:
     :returns: bool -- 
+
+  .. php:method:: public getArgsByElementId (string $element_id) -> ArgumentArray
+
+    Get an elements child args by unique element id
+
+    :param string $element_id:
+    :returns: :class:`ArgumentArray` -- 
 
   .. php:method:: public getDomElementByPlaceholderId (string $element_id)
 
@@ -62,23 +67,23 @@ Engine
     :param array $lhtml_element:
     :returns: bool -- 
 
-  .. php:method:: public queryFetch (string $query[, DOMElement $node]) -> mixed
+  .. php:method:: public queryFetch (string $query[, ?DOMElement $node])
 
     XPath query for class $this->DOM property that fetches only first result
 
     :param string $query:
-    :param DOMElement $node:
+    :param ?DOMElement $node:
       Default: ``null``
-    :returns: mixed -- 
+    :returns: DOMElement|null
 
-  .. php:method:: public queryFetchAll (string $query[, DOMElement $node]) -> mixed
+  .. php:method:: public queryFetchAll (string $query[, ?DOMElement $node])
 
     XPath query for class $this->DOM property that fetches all results as array
 
     :param string $query:
-    :param DOMElement $node:
+    :param ?DOMElement $node:
       Default: ``null``
-    :returns: mixed -- 
+    :returns: DOMNodeList|null
 
   .. php:method:: public removeElements (array $lhtml_element)
 
@@ -101,15 +106,20 @@ Engine
     :param DOMElement $element:
     :param string $new_xml:
 
-  .. php:method:: public setType ([])
+  .. php:method:: public sanitizeXml (string $xml) -> string
 
-    Set a value type to avoid Type Juggling issues and extend data types
+    Remove args and INDEX_ATTRIBUTE
 
-    :param $value:
-      Default: ``null``
-    :param $type:
-      Default: ``'string'``
-    :returns: bool|mixed|string|null
+    :param string $xml:
+    :returns: string -- 
+
+  .. php:method:: public stripAttributes (string $xml, array $attributes) -> string
+
+    Strip attributes
+
+    :param string $xml:
+    :param array $attributes:
+    :returns: string -- 
 
   .. php:method:: private instantiateElement (DOMElement $element, string $class_name) -> bool
 

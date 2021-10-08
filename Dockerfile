@@ -120,12 +120,6 @@ RUN apt-get update \
  && wget --progress=dot:giga https://raw.githubusercontent.com/silverfoxy/doxyphp2sphinx/master/doxyphp2sphinx/rstgenerator.py \
     -O /usr/local/lib/python3.7/dist-packages/doxyphp2sphinx/rstgenerator.py
 
-COPY docs /app/docs
-COPY src /app/src
-
-WORKDIR "/app/docs"
-
-RUN doxygen Doxyfile \
- && doxyphp2sphinx Ouxsoft::PHPMarkup
+WORKDIR "/app/"
 
 SHELL ["/bin/bash", "-c"]
