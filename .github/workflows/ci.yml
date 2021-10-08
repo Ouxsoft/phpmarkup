@@ -85,9 +85,7 @@ jobs:
           - '7.3'
           - '7.4'
           - '8.0'
-        include:
-          - php-version: '8.0'
-            submit-coverage: 'yes'
+
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v2
@@ -108,10 +106,6 @@ jobs:
 
       - name: Run PHP Unit Tests
         run: composer run-script unit-test
-
-      - name: Submit code coverage
-        if: matrix.submit-coverage == 'yes'
-        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f tests/output/clover.xml
 
   php-feature-test:
     name: "PHP ${{ matrix.php-version }} Feature Tests"
@@ -171,7 +165,41 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run PHP Benchmark Tests
-        run: composer run-script benchmark
+        run: composer run-script benchmarkt-test
+
+  php-coverage-test:
+    name: "PHP ${{ matrix.php-version }} Coverage Tests"
+    needs:
+      - composer-validate
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version:
+          - '8.0'
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v2
+
+      - name: PHP Info
+        run: php --version
+
+      - name: Cache Composer packages
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run PHP Coverage Tests
+        run: composer run-script coverage-test
+
+      - name: Submit code coverage
+        if: matrix.submit-coverage == 'yes'
+        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f tests/output/clover.xml
 
   dockerfile-validate:
     name: "Dockerfile Validate"
@@ -182,6 +210,7 @@ jobs:
       - php-unit-test
       - php-benchmark-test
       - php-feature-test
+      - php-coverage-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -232,6 +261,7 @@ jobs:
       - php-unit-test
       - php-benchmark-test
       - php-feature-test
+      - php-coverage-test
       - dockerfile-validate
       - docker-hub
     steps:
@@ -249,5 +279,6 @@ jobs:
             ${{ needs.php-unit-test.result == 'success' && ':white_check_mark:' || ':no_entry_sign:' }} PHP Unit Tests.
             ${{ needs.php-benchmark-test.result == 'success' && ':white_check_mark:' || ':no_entry_sign:' }} PHP Benchmark Tests.
             ${{ needs.php-feature-test.result == 'success' && ':white_check_mark:' || ':no_entry_sign:' }} PHP Feature Tests.
+            ${{ needs.php-coverage-test.result == 'success' && ':white_check_mark:' || ':no_entry_sign:' }} PHP Coverage Tests.
             ${{ needs.dockerfile-validate.result == 'success' && ':white_check_mark:' || ':no_entry_sign:' }} Dockerfile Validate.
             ${{ needs.docker-hub.result == 'success' && ':white_check_mark:' || ':no_entry_sign:' }} Docker Hub.

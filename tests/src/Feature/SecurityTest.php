@@ -12,6 +12,7 @@ namespace Ouxsoft\PHPMarkup\Tests\Feature;
 
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use Ouxsoft\PHPMarkup\Processor;
+use Ouxsoft\PHPMarkup\Engine;
 use PHPUnit\Framework\TestCase;
 
 final class SecurityTest extends TestCase
@@ -60,5 +61,36 @@ final class SecurityTest extends TestCase
             TEST_DIR . 'Resource/outputs/security-test.html',
             $test_results
         );
+    }
+
+    public function testArgsRemoved()
+    {
+        $this->processor->addElement([
+            'xpath' => "//helloworld[not(ancestor::*[@process='false'])]",
+            'class_name' => 'Ouxsoft\PHPMarkup\Tests\Resource\Element\HelloWorld'
+        ]);
+
+        $this->processor->addRoutine([
+            'method' => 'onRender',
+            'execute' => 'RETURN_CALL'
+        ]);
+        $html = $this->processor->parseString('<html><helloworld><arg name="limit">1</arg></helloworld></html>');
+        $tag = '<arg';
+        $this->assertStringNotContainsString($tag, $html);
+    }
+
+    public function testElementIdRemoved()
+    {
+        $this->processor->addElement([
+            'xpath' => "//helloworld[not(ancestor::*[@process='false'])]",
+            'class_name' => 'Ouxsoft\PHPMarkup\Tests\Resource\Element\HelloWorld'
+        ]);
+        $this->processor->addRoutine([
+            'method' => 'onRender',
+            'execute' => 'RETURN_CALL'
+        ]);
+        $html = $this->processor->parseString('<html><helloworld><arg name="limit">1</arg></helloworld></html>');
+        $attribute = Engine::INDEX_ATTRIBUTE;
+        $this->assertStringNotContainsString($attribute, $html);
     }
 }

@@ -48,19 +48,25 @@
       "@analyze",
       "@unit-test",
       "@feature-test",
-      "@benchmark"
+      "@coverage-test",
+      "@benchmark-test"
     ],
     "test": [
       "@unit-test",
-      "@feature-test"
+      "@feature-test",
+      "@coverage-test",
+      "@benchmark-test"
     ],
     "unit-test": [
-      "XDEBUG_MODE=coverage ./vendor/bin/phpunit --testsuite unit"
+      "./vendor/bin/phpunit --no-coverage --testsuite unit"
     ],
     "feature-test": [
-      "XDEBUG_MODE=coverage ./vendor/bin/phpunit --testsuite feature"
+      "./vendor/bin/phpunit --no-coverage --testsuite feature"
     ],
-    "benchmark" : [
+    "coverage-test": [
+      "XDEBUG_MODE=coverage ./vendor/bin/phpunit"
+    ],
+    "benchmark-test" : [
       "./vendor/bin/phpbench run tests/src/Benchmark --report=env --progress=dots"
     ],
     "analyze" : [
