@@ -165,7 +165,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run PHP Benchmark Tests
-        run: composer run-script benchmarkt-test
+        run: composer run-script benchmark-test
 
   php-coverage-test:
     name: "PHP ${{ matrix.php-version }} Coverage Tests"
