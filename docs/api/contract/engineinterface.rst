@@ -80,3 +80,13 @@ EngineInterface
     :param DOMElement $element:
     :param string $new_xml:
 
+  .. php:method:: public sanitizeXml (string $xml) -> string
+
+    :param string $xml:
+    :returns: string -- 
+
+  .. php:method:: public stripAttributes (array $attributes)
+
+    :param array $attributes:
+    :returns: void
+

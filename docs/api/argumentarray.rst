@@ -73,7 +73,7 @@ ArgumentArray
     :param string $value:
       Default: ``null``
     :param ?string $type:
-      Default: ``NULL``
+      Default: ``null``
     :returns: void
 
   .. php:method:: public valid () -> bool

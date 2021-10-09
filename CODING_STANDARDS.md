@@ -1,5 +1,14 @@
 # PHPMarkup coding standards
 
+## Coding Guidelines
+
+*  PHPMarkup is built to adhere to the Unix philosophy.
+*  PHPMarkup is designed for use in other applications; not to be a monolithic solution.
+*  PHPMarkup use PHPDocs blocks.
+*  Classes use S.O.L.I.D. Design Principle.
+
+## Style Guidelines
+
 1. Variable names must be meaningful. One letter variable names must be avoided,
     except for places where the variable has no real meaning or a trivial
     meaning (e.g. `for (i=0; i<100; i++) ...`).

@@ -386,7 +386,7 @@ class Engine implements EngineInterface
     }
 
     /**
-     * Remove args and INDEX_ATTRIBUTE
+     * Remove args
      * @param string $xml
      * @return string
      */
@@ -394,31 +394,24 @@ class Engine implements EngineInterface
     {
         // strip args
         $xml = preg_replace("/<arg.*?>(.*)?<\/arg>/im", '', $xml);
-        // strip INDEX_ATTRIBUTE
-        $xml = $this->stripAttributes($xml, [self::INDEX_ATTRIBUTE]);
 
         return $xml;
     }
 
     /**
      * Strip attributes
-     * @param string $xml
      * @param array $attributes
-     * @return string
+     * @return void
      */
-    public function stripAttributes(string $xml, array $attributes): string
+    public function stripAttributes(array $attributes): void
     {
-        $xml = '<div>' . $xml . '</div>';
-        $dom = new DOMDocument();
-        $dom->loadXML($xml);
-        $xPath = new DOMXPath($dom);
+        $xPath = new DOMXPath($this->dom);
         foreach ($attributes as $attribute) {
             $nodes = $xPath->query('//*[@' . $attribute . ']');
             foreach ($nodes as $node) {
                 $node->removeAttribute($attribute);
             }
         }
-        return substr($dom->saveXML($dom->getElementsByTagName('div')->item(0)), 5, -6);
     }
 
     /**
@@ -444,6 +437,8 @@ class Engine implements EngineInterface
      */
     public function __toString(): string
     {
+        $this->stripAttributes([self::INDEX_ATTRIBUTE]);
+
         return $this->dom->saveHTML();
     }
 }

@@ -13,6 +13,10 @@ Released: TBA. Notable changes:
 
 ## PHPMarkup 4.2.5
 Released: 2021-10-08. Notable changes:
+* Changed: Marker attribute removal to end routine.
+
+## PHPMarkup 4.2.5
+Released: 2021-10-08. Notable changes:
 * Fixed: QA tests.
 
 ## PHPMarkup 4.2.4

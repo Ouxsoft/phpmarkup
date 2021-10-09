@@ -55,7 +55,7 @@ jobs:
           composer-options: "--no-scripts"
 
       - name: Run Code Standard Test
-        run: composer run-script check-code-standards
+        run: composer run-script code-standards-test
 
   php-static-analysis-test:
     needs:
@@ -71,7 +71,7 @@ jobs:
       - uses: php-actions/composer@v6
 
       - name: PHPStan Test
-        run: composer run-script analyze
+        run: composer run-script static-analysis-test
 
   php-unit-test:
     name: "PHP ${{ matrix.php-version }} Unit Tests"

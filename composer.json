@@ -44,18 +44,15 @@
   "scripts": {
     "qc" : [
       "@fix-code-standards",
-      "@check-code-standards",
-      "@analyze",
-      "@unit-test",
-      "@feature-test",
-      "@coverage-test",
-      "@benchmark-test"
+      "@test"
     ],
     "test": [
       "@unit-test",
       "@feature-test",
       "@coverage-test",
-      "@benchmark-test"
+      "@benchmark-test",
+      "@static-analysis-test",
+      "@code-standards-test"
     ],
     "unit-test": [
       "./vendor/bin/phpunit --no-coverage --testsuite unit"
@@ -69,14 +66,14 @@
     "benchmark-test" : [
       "./vendor/bin/phpbench run tests/src/Benchmark --report=env --progress=dots"
     ],
-    "analyze" : [
+    "static-analysis-test" : [
       "./vendor/bin/phpstan analyse -c phpstan.neon"
     ],
     "fix-code-standards": [
       "php-cs-fixer fix --using-cache=no src/",
       "php-cs-fixer fix --using-cache=no tests/"
     ],
-    "check-code-standards": [
+    "code-standards-test": [
       "php-cs-fixer fix --dry-run --diff --verbose --using-cache=no src/ ",
       "php-cs-fixer fix --dry-run --diff --verbose --using-cache=no tests/"
     ]

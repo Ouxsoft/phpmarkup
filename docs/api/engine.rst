@@ -108,18 +108,17 @@ Engine
 
   .. php:method:: public sanitizeXml (string $xml) -> string
 
-    Remove args and INDEX_ATTRIBUTE
+    Remove args
 
     :param string $xml:
     :returns: string -- 
 
-  .. php:method:: public stripAttributes (string $xml, array $attributes) -> string
+  .. php:method:: public stripAttributes (array $attributes)
 
     Strip attributes
 
-    :param string $xml:
     :param array $attributes:
-    :returns: string -- 
+    :returns: void
 
   .. php:method:: private instantiateElement (DOMElement $element, string $class_name) -> bool
 

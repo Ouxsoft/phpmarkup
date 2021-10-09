@@ -78,11 +78,10 @@ interface EngineInterface
     public function sanitizeXml(string $xml): string;
 
     /**
-     * @param string $xml
      * @param array $attributes
-     * @return string
+     * @return void
      */
-    public function stripAttributes(string $xml, array $attributes): string;
+    public function stripAttributes(array $attributes): void;
 
     /**
      * @param string $element_id
