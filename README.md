@@ -84,7 +84,7 @@ See also the [list of contributors](https://github.com/Ouxsoft/phpmarkup/graphs/
 
 ### Contributing
 PHPMarkup is an open source project. If you find a problem or want to discuss new features or improvements
-**please** create an issue, and/or if possible create a pull request. Easy contribute using 
+**please** create an issue, and/or if possible create a pull request. Easily contribute using 
 [test docker image](https://github.com/Ouxsoft/phpmarkup/blob/master/CONTRIBUTING.md).
 
 ### License
