@@ -79,7 +79,7 @@ It facilitates the extraction of markup into a data structure, orchestrated mani
 *  [API](https://phpmarkup.readthedocs.io/en/latest/api.html)
 
 ### Author
-Matthew Heroux<br />
+[Matthew Heroux](https://github.com/hxtree)<br />
 See also the [list of contributors](https://github.com/Ouxsoft/phpmarkup/graphs/contributors) who participated in this project.
 
 ### Contributing
