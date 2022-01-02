@@ -11,6 +11,14 @@ All releases must adhere to [SemVer 2](https://semver.org/) naming convention an
 ## PHPMarkup [Unreleased]
 Released: TBA. Notable changes:
 
+## PHPMarkup 4.3.2
+Released: 2022-01-02. Notable changes:
+* Changed: Fix null arg check.
+
+## PHPMarkup 4.3.1
+Released: 2022-01-02. Notable changes:
+* Changed: Improved ArrayArgument keys.
+
 ## PHPMarkup 4.3.0
 Released: 2022-01-01. Notable changes:
 * Changed: Add PHP 8.1 support.
