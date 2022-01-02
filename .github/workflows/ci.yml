@@ -65,7 +65,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - '8.0'
+          - '7.4'
     steps:
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6
