@@ -12,7 +12,7 @@ All releases must adhere to [SemVer 2](https://semver.org/) naming convention an
 Released: TBA. Notable changes:
 
 ## PHPMarkup 4.3.1
-Released: 2022-01-01. Notable changes:
+Released: 2022-01-02. Notable changes:
 * Changed: Improved ArrayArgument keys.
 
 ## PHPMarkup 4.3.0
