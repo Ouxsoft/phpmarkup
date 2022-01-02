@@ -116,13 +116,10 @@ class ArgumentArray implements
 
     /**
      * Get item from container
-     *
-     * @param mixed $offset
-     * @return mixed
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset];
     }
 
     /**
@@ -204,9 +201,6 @@ class ArgumentArray implements
         $this->container = array_merge($array, $this->container);
     }
 
-    /**
-     * @return mixed
-     */
     public function current()
     {
         $current_key = $this->getCurrentKey();
