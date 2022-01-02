@@ -124,7 +124,7 @@ abstract class AbstractElement
     }
 
     /**
-     * Get live arg by name
+     * Get live arg by name if exists
      *
      * @param string $name
      * @return mixed|null
@@ -132,7 +132,7 @@ abstract class AbstractElement
     public function getArgByName(string $name)
     {
         $args = $this->getArgs();
-        return $args[$name];
+        return $args[$name] ?? null;
     }
 
     /**
