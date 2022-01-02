@@ -19,6 +19,11 @@ use Countable;
 /**
  * Class ArgumentArray contains Element arguments
  *
+ *     {
+ *       "limit" : 1,
+ *       "items" : ["apple","orange","grape"]
+ *     }
+ *
  * @package Ouxsoft\PHPMarkup
  */
 class ArgumentArray implements
@@ -32,9 +37,16 @@ class ArgumentArray implements
     private $container = [];
 
     /**
-     * @var int
+     * @var int the position in the array keys
+     *
+     * e.g. 2 would represent c {"a":[1,2,3],"b","c"}
      */
     private $index = 0;
+
+    /**
+     * @var array keys contain a list of arrays stored
+     */
+    private $keys = [];
 
     /**
      * Set a value type to avoid Type Juggling issues and extend data types
@@ -121,23 +133,43 @@ class ArgumentArray implements
      */
     public function offsetSet($offset, $value): void
     {
+        $offset = strval($offset);
+
+        // set value if value not set
         if (!isset($this->container[$offset])) {
-            // set value
             $this->container[$offset] = $value;
-        } elseif ($this->container[$offset] == $value) {
-            // if item value exists as string skip
-        } elseif (is_string($this->container[$offset])) {
-            // change string value to array
+            return;
+        }
+
+        // if item value exists and is same do nothing
+        if ($this->container[$offset] == $value) {
+            return;
+        }
+
+        // if not an array change to one and add value
+        if (
+            isset($this->container[$offset])
+            && !is_array($this->container[$offset])
+        ) {
             $present_value = $this->container[$offset];
             $this->container[$offset] = [];
             array_push($this->container[$offset], $present_value);
             array_push($this->container[$offset], $value);
-        } elseif (in_array($value, $this->container[$offset])) {
-            // if item already exists return
             return;
-        } elseif (is_array($this->container[$offset])) {
-            // add to array
+        }
+
+        // if item already exists return
+        if (in_array($value, $this->container[$offset])) {
+            return;
+        }
+
+        // add to array
+        if (
+            is_array($this->container[$offset])
+            && !in_array($value, $this->container[$offset])
+        ) {
             array_push($this->container[$offset], $value);
+            return;
         }
     }
 
@@ -148,6 +180,7 @@ class ArgumentArray implements
      */
     public function offsetUnset($offset): void
     {
+        $offset = strval($offset);
         unset($this->container[$offset]);
     }
 
@@ -176,30 +209,24 @@ class ArgumentArray implements
      */
     public function current()
     {
-        $k = array_keys($this->container);
-        return $this->container[$k[$this->index]];
+        $current_key = $this->getCurrentKey();
+        return $this->container[$current_key];
     }
 
     /**
-     * @return bool|mixed|void
+     * @return void
      */
-    public function next()
+    public function next(): void
     {
-        $k = array_keys($this->container);
-        if (isset($k[++$this->index])) {
-            return $this->container[$k[$this->index]];
-        } else {
-            return false;
-        }
+        $this->index++;
     }
 
     /**
-     * @return bool|float|int|mixed|string|null
+     * @return string
      */
-    public function key()
+    public function key(): string
     {
-        $k = array_keys($this->container);
-        return $k[$this->index];
+        return $this->getCurrentKey();
     }
 
     /**
@@ -207,12 +234,21 @@ class ArgumentArray implements
      */
     public function valid(): bool
     {
-        $k = array_keys($this->container);
-        return isset($k[$this->index]);
+        $current_key = $this->getCurrentKey();
+        return isset($this->container[$current_key]);
     }
 
     public function rewind(): void
     {
         $this->index = 0;
+    }
+
+    /**
+     * @return string
+     */
+    private function getCurrentKey(): ?string
+    {
+        $args = array_keys($this->container);
+        return $args[$this->index] ?? null;
     }
 }

@@ -43,7 +43,7 @@
   },
   "scripts": {
     "qc" : [
-      "@fix-code-standards",
+      "@code-standards-apply",
       "@test"
     ],
     "test": [
@@ -69,7 +69,7 @@
     "static-analysis-test" : [
       "./vendor/bin/phpstan analyse -c phpstan.neon"
     ],
-    "fix-code-standards": [
+    "code-standards-apply": [
       "php-cs-fixer fix --using-cache=no src/",
       "php-cs-fixer fix --using-cache=no tests/"
     ],
