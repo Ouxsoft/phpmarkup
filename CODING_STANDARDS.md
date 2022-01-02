@@ -100,3 +100,5 @@
     ```
 
     Rule inherited from [PHP](https://github.com/php/php-src/edit/master/CODING_STANDARDS.md).
+
+5. All code must adhere to automated coding style checks.

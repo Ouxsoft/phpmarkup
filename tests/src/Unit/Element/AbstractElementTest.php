@@ -46,6 +46,8 @@ class AbstractElementTest extends TestCase
     {
         $this->element->args['test'] = 'pass';
         $this->assertEquals('pass', $this->element->getArgByName('test'));
+
+        $this->assertEquals(null, $this->element->getArgByName('doesntexist'));
     }
 
     /**

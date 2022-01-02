@@ -23,7 +23,7 @@ docker run -it --mount type=bind,source="$(pwd)"/,target=/application/ phpmarkup
 *  Update or add tests to avoid the change breaking in future releases.
 
 ```
-docker run -it --mount type=bind,source="$(pwd)"/,target=/application/ phpmarkup:latest composer qa
+docker run -it --mount type=bind,source="$(pwd)"/,target=/application/ phpmarkup:latest composer qc
 ```
 
 ### Step 4
