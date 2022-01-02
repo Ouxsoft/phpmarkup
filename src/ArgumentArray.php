@@ -44,11 +44,6 @@ class ArgumentArray implements
     private $index = 0;
 
     /**
-     * @var array keys contain a list of arrays stored
-     */
-    private $keys = [];
-
-    /**
      * Set a value type to avoid Type Juggling issues and extend data types
      *
      * @param string $name
