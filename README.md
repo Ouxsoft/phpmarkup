@@ -4,6 +4,7 @@
 [![Code Quality](https://app.codacy.com/project/badge/Grade/68c52ad139cb4f7fbb5e78c2eace6800)](https://www.codacy.com/gh/Ouxsoft/phpmarkup/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ouxsoft/phpmarkup&amp;utm_campaign=Badge_Grade)
 [![Code Coverage](https://img.shields.io/codecov/c/github/Ouxsoft/phpmarkup)](https://codecov.io/gh/Ouxsoft/phpmarkup)
 [![Docs Status](https://readthedocs.org/projects/phpmarkup/badge/?version=latest&style=flat)](https://readthedocs.org/projects/phpmarkup)
+[![Known Vulnerabilities](https://snyk.io/test/github/ouxsoft/phpmarkup/badge.svg)]
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/Ouxsoft/phpmarkup.svg)](https://packagist.org/packages/Ouxsoft/phpmarkup)
 [![PHP Versions Supported](https://img.shields.io/badge/php-7.3%20to%208.1-777bb3.svg?logo=php&logoColor=white&labelColor=555555)](https://api.travis-ci.com/Ouxsoft/phpmarkup.svg?branch=master&status=passed)
